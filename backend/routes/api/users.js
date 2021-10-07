@@ -6,7 +6,7 @@ const { User } = require("../../db/models");
 
 const router = express.Router();
 
-// Routes
+/*****************************Routes*****************************/
 // Sign up
 router.post(
   "/",
