@@ -52,6 +52,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
+  User.associate = function (models) {
+    // associations can be defined here
+  };
+
   User.prototype.toSafeObject = function () {
     const { id, username, email } = this;
     return { id, username, email };
@@ -90,8 +94,5 @@ module.exports = (sequelize, DataTypes) => {
     return await User.scope("currentUser").findByPk(user.id);
   };
 
-  User.associate = function (models) {
-    // associations can be defined here
-  };
   return User;
 };
