@@ -20,10 +20,11 @@ const validateLogin = [
   handleValidationErrors,
 ];
 
-/*****************************Routes*****************************/
+/*****************************Routes*********************************/
 // Login
 router.post(
   "/",
+  validateLogin,
   asyncHandler(async (req, res, next) => {
     const { credential, password } = req.body;
 
@@ -38,6 +39,7 @@ router.post(
     }
 
     await setTokenCookie(res, user);
+
     return res.json({
       user,
     });
