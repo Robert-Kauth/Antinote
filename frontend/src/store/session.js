@@ -1,54 +1,57 @@
 import { csrfFetch } from "./csrf";
 /*-------------Types-------------*/
 
-const ADD = "session/ADD";
-const REMOVE = "session/REMOVE";
+const SET_USER = "session/setUser";
+const REMOVE_USER = "session/removeUser";
 
 /*-------------ACTIONS-------------*/
 
-const addSessionUser = (user) => ({
-  type: ADD,
-  user,
-});
+const setUser = (user) => {
+  return {
+    type: SET_USER,
+    user,
+  };
+};
 
-const removeSessionUser = (user) => ({
-  type: REMOVE,
-  user,
-});
+const removeUser = () => {
+  return {
+    type: REMOVE_USER,
+  };
+};
 
 /*-------------THUNK CREATORS-------------*/
 
-export const login = () => async (dispatch) => {
+export const login = (user) => async (dispatch) => {
+  const { credential, password } = user;
   const res = await csrfFetch("/api/session", {
     method: "POST",
     body: JSON.stringify({
-      credential: "Demo-lition",
-      password: "password",
+      credential,
+      password,
     }),
   });
-  if (!res.ok) {
-    const user = null;
-    dispatch(addSessionUser(user));
-  }
-  const user = await res.json();
-  dispatch(addSessionUser(user));
+  const data = await res.json();
+  dispatch(setUser(data.user));
+  return res;
 };
 
 /*-------------REDUCERS-------------*/
-const initialState = {
-  user: {},
-};
+const initialState = { user: null };
 
-const userReducer = (state = initialState, action) => {
+const sessionReducer = (state = initialState, action) => {
+  let newState;
   switch (action.type) {
-    case ADD:
-      return {
-        ...state,
-        ...action.user,
-      };
+    case SET_USER:
+      newState = Object.assign({}, state);
+      newState.user = action.user;
+      return newState;
+    case REMOVE_USER:
+      newState = Object.assign({}, state);
+      newState.user = null;
+      return newState;
     default:
       return state;
   }
 };
 
-export default userReducer;
+export default sessionReducer;
