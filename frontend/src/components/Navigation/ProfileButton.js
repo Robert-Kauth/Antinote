@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
+import Icon from "@mdi/react";
+import { mdiAccountArrowDown, mdiAccount } from "@mdi/js";
 
 const ProfileButton = ({ user }) => {
   const dispatch = useDispatch();
@@ -27,7 +29,10 @@ const ProfileButton = ({ user }) => {
   return (
     <>
       <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+        {!showMenu && (
+          <Icon path={mdiAccountArrowDown} size={1} color="black" />
+        )}
+        {showMenu && <Icon path={mdiAccount} size={1} color="black" />}
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
