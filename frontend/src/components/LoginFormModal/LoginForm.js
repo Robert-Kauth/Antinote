@@ -25,30 +25,38 @@ const LoginForm = () => {
     <form className={style.form} onSubmit={handleSubmit}>
       <fieldset className={style.field}>
         <legend className={style.field}>Please Login In</legend>
-        <ul>
-          {errors.map((error, i) => (
-            <li key={i}>{error}</li>
-          ))}
-        </ul>
-        <label>
-          Username or Email
-          <input
-            type="text"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Log In</button>
+        <div className={style.errorsContainer}>
+          <ul>
+            {errors.map((error, i) => (
+              <li key={i}>{error}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <label>Username or Email</label>
+          <div className={style.inputContainer}>
+            <input
+              type="text"
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
+              required
+            />
+          </div>
+        </div>
+        <div>
+          <label>Password</label>
+          <div className={style.inputContainer}>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+        </div>
+        <div className={style.buttonContainer}>
+          <button type="submit">Log In</button>
+        </div>
       </fieldset>
     </form>
   );
