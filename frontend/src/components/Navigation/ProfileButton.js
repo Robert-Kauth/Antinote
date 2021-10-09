@@ -35,7 +35,7 @@ const ProfileButton = ({ user }) => {
         {showMenu && <Icon path={mdiAccount} size={1} color="black" />}
       </button>
       {showMenu && (
-        <ul className="profile-dropdown">
+        <ul className="profileDropdown">
           <li>{user.username}</li>
           <li>{user.email}</li>
           <li>
