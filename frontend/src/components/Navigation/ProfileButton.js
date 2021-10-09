@@ -3,6 +3,11 @@ import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 import Icon from "@mdi/react";
 import { mdiAccountArrowDown, mdiAccount } from "@mdi/js";
+import styled from "styled-components";
+
+const Button = styled.button`
+  border-radius: 10px;
+`;
 
 const ProfileButton = ({ user }) => {
   const dispatch = useDispatch();
@@ -26,14 +31,15 @@ const ProfileButton = ({ user }) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
   };
+
   return (
     <>
-      <button onClick={openMenu}>
+      <Button onClick={openMenu}>
         {!showMenu && (
           <Icon path={mdiAccountArrowDown} size={1} color="black" />
         )}
         {showMenu && <Icon path={mdiAccount} size={1} color="black" />}
-      </button>
+      </Button>
       {showMenu && (
         <ul className="profileDropdown">
           <li>{user.username}</li>
