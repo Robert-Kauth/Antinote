@@ -4,11 +4,14 @@ import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import style from "./Navigation.module.css";
+import SignupFormModal from "../SignupFormModal";
+import Icon from "@mdi/react";
+import { mdiHomeCircle } from "@mdi/js";
 import styled from "styled-components";
 
-const StyledNavLink = styled(NavLink)`
-  padding: 0 5px;
-  font-size: 25px;
+const StyledIcon = styled(Icon)`
+  color: darkgreen;
+  padding-top: 10px;
 `;
 
 const Navigation = ({ isLoaded }) => {
@@ -24,20 +27,16 @@ const Navigation = ({ isLoaded }) => {
           <LoginFormModal />
         </span>
         <span className={style.navLink}>
-          <NavLink activeClassName={style.activeNav} to="/signup">
-            Sign Up
-          </NavLink>
+          <SignupFormModal />
         </span>
       </nav>
     );
   }
   return (
     <nav className={style.container}>
-      <span className={style.navLink}>
-        <NavLink activeClassName={style.activeNav} exact to="/">
-          Home
-        </NavLink>
-      </span>
+      <NavLink activeClassName={style.activeNav} exact to="/">
+        <StyledIcon path={mdiHomeCircle} size={2} />
+      </NavLink>
       <span>{isLoaded && sessionLinks}</span>
     </nav>
   );

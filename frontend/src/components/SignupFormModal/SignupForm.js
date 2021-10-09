@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
-import "./SignupForm.module.css";
+import style from "./SignupForm.module.css";
 
-const SignupFormPage = () => {
+const SignupForm = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
 
@@ -80,4 +80,4 @@ const SignupFormPage = () => {
   );
 };
 
-export default SignupFormPage;
+export default SignupForm;
