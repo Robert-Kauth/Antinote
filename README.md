@@ -1,1 +1,1 @@
-# Welcome to Antinote: The antidote for all notes
+Welcome to Antinote: The antidote for all notes
