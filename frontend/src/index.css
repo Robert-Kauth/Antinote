@@ -5,3 +5,6 @@
   font-family: "Spectral", serif;
   box-sizing: border-box;
 }
+.nav {
+  background-color: red;
+}

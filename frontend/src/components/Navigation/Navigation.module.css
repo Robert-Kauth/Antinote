@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+}
+.navLink {
+  font-size: 25px;
+  padding: 5px;
+  color: black;
+  text-decoration: none;
+}
+.navLink :visited {
+  color: black;
+  text-decoration: none;
+}
+.activeNav {
+  background-color: aquamarine;
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
+}
