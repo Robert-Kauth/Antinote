@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
-import SignupFormModal from "./components/SignupFormModal";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import Home from "./components/Home";
 
 function App() {
   const dispatch = useDispatch();
@@ -13,9 +12,12 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
   return (
-    <nav className="appContainer">
-      <Navigation isLoaded={isLoaded} />
-    </nav>
+    <div>
+      <nav className="appContainer">
+        <Navigation isLoaded={isLoaded} />
+        <Home />
+      </nav>
+    </div>
   );
 }
 
