@@ -11,6 +11,11 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
+  const demoLogin = (e) => {
+    e.preventDefault();
+    return dispatch(sessionActions.demoLogin());
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
@@ -56,11 +61,9 @@ const LoginForm = () => {
         </div>
         <div className={style.buttonContainer}>
           <button type="submit">Log In</button>
-          <form action="/users/demo" method="post">
-            <button className={style.demo} type="submit">
-              Demo User
-            </button>
-          </form>
+          <button type="submit" onClick={demoLogin}>
+            Demo User
+          </button>
         </div>
       </fieldset>
     </form>

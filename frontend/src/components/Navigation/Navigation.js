@@ -9,8 +9,7 @@ import { mdiHomeCircle } from "@mdi/js";
 import styled from "styled-components";
 
 const StyledIcon = styled(Icon)`
-  color: darkgreen;
-  padding-top: 10px;
+  color: darkcyan;
 `;
 
 const Navigation = ({ isLoaded }) => {
@@ -22,7 +21,7 @@ const Navigation = ({ isLoaded }) => {
   } else {
     sessionLinks = (
       <div>
-        <span className={styles.navLink}>
+        <span className={styles.loginModal}>
           <LoginFormModal />
         </span>
       </div>
