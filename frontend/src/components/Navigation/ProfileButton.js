@@ -4,7 +4,7 @@ import * as sessionActions from "../../store/session";
 import Icon from "@mdi/react";
 import { mdiAccountArrowDown, mdiAccount } from "@mdi/js";
 import styled from "styled-components";
-
+import styles from "./Navigation.module.css";
 const Button = styled.button`
   border-radius: 10px;
 `;
@@ -33,7 +33,7 @@ const ProfileButton = ({ user }) => {
   };
 
   return (
-    <>
+    <div className={styles.profileButton}>
       <Button onClick={openMenu}>
         {!showMenu && (
           <Icon path={mdiAccountArrowDown} size={1} color="black" />
@@ -41,15 +41,17 @@ const ProfileButton = ({ user }) => {
         {showMenu && <Icon path={mdiAccount} size={1} color="black" />}
       </Button>
       {showMenu && (
-        <ul className="profileDropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
-          <li>
-            <button onClick={logout}>Log Out</button>
+        <ul className={styles.profileDropdown}>
+          <li className={styles.profileContent}>{user.username}</li>
+          <li className={styles.profileContent}>{user.email}</li>
+          <li className={styles.profileContentButton}>
+            <button className={styles.logout} onClick={logout}>
+              Log Out
+            </button>
           </li>
         </ul>
       )}
-    </>
+    </div>
   );
 };
 export default ProfileButton;

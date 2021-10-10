@@ -18,13 +18,7 @@ const Navigation = ({ isLoaded }) => {
 
   let sessionLinks;
   if (sessionUser) {
-    sessionLinks = (
-      <nav className={styles.container}>
-        <span className={styles.profile}>
-          <ProfileButton user={sessionUser} />
-        </span>
-      </nav>
-    );
+    sessionLinks = <ProfileButton user={sessionUser} />;
   } else {
     sessionLinks = (
       <div>
@@ -39,7 +33,7 @@ const Navigation = ({ isLoaded }) => {
       <NavLink activeClassName={styles.activeNav} exact to="/">
         <StyledIcon path={mdiHomeCircle} size={2} />
       </NavLink>
-      <span>{isLoaded && sessionLinks}</span>
+      {isLoaded && sessionLinks}
     </nav>
   );
 };
