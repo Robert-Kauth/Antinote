@@ -56,6 +56,11 @@ const LoginForm = () => {
         </div>
         <div className={style.buttonContainer}>
           <button type="submit">Log In</button>
+          <form action="/users/demo" method="post">
+            <button className={style.demo} type="submit">
+              Demo User
+            </button>
+          </form>
         </div>
       </fieldset>
     </form>
