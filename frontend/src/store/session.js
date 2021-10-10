@@ -38,6 +38,7 @@ export const login = (user) => async (dispatch) => {
 export const restoreUser = () => async (dispatch) => {
   const res = await csrfFetch("/api/session");
   const data = await res.json();
+  // TODO handle redirect when restore user fails
   dispatch(setUser(data.user));
   return res;
 };

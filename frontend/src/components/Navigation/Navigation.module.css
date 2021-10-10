@@ -21,3 +21,12 @@ a {
 .iconContainer {
   padding-top: 2px;
 }
+.profile {
+  padding: 5px;
+}
+.logout {
+  padding: 5px;
+}
+.logoutButton {
+  font-size: 18px;
+}

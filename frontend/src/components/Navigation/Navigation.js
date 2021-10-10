@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
+import Logout from "./Logout";
 import style from "./Navigation.module.css";
 import SignupFormModal from "../SignupFormModal";
 import Icon from "@mdi/react";
@@ -19,7 +20,16 @@ const Navigation = ({ isLoaded }) => {
 
   let sessionLinks;
   if (sessionUser) {
-    sessionLinks = <ProfileButton user={sessionUser} />;
+    sessionLinks = (
+      <nav className={style.container}>
+        <span className={style.profile}>
+          <ProfileButton user={sessionUser} />
+        </span>
+        <span className={style.logout}>
+          <Logout />
+        </span>
+      </nav>
+    );
   } else {
     sessionLinks = (
       <nav className={style.container}>

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
+import SignupFormModal from "./components/SignupFormModal";
 
 function App() {
   const dispatch = useDispatch();
@@ -15,8 +16,8 @@ function App() {
     <div>
       <nav className="appContainer">
         <Navigation isLoaded={isLoaded} />
-        <Home />
       </nav>
+      {isLoaded ? <Home /> : <SignupFormModal />}
     </div>
   );
 }
