@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   background-color: #1e4d2b;
-  box-shadow: 0 0 1px 1px darkcyan;
+  box-shadow: 0 0 2px 1px darkcyan;
   background-image: url(https://antinote.s3.us-west-1.amazonaws.com/Antidote.gif);
   background-position: center;
   background-clip: padding-box;
