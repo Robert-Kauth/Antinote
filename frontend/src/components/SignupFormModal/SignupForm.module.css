@@ -1,3 +1,37 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #1e4d2b;
+  background-image: url(https://antinote.s3.us-west-1.amazonaws.com/Antidote.gif);
+  background-position: center;
+  background-clip: padding-box;
+  background-repeat: repeat-y;
+  max-width: 100%;
+  height: 100vh;
+}
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  background-color: #1e4d2b;
+}
+.title {
+  border: 2px solid black;
+  padding: 10px 20px;
+  background-color: aqua;
+  font-size: 80px;
+  margin: 0;
+}
+.modalContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.modalButton {
+  border: 2px solid darkgreen;
+  background-color: cyan;
+  padding: 10px;
+  font-size: 50px;
+}
 .form {
   background-color: lightseagreen;
   border-radius: 5px;

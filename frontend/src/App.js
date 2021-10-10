@@ -14,10 +14,8 @@ function App() {
   }, [dispatch]);
   return (
     <div>
-      <nav className="appContainer">
-        <Navigation isLoaded={isLoaded} />
-      </nav>
-      {isLoaded ? <Home /> : <SignupFormModal />}
+      <Navigation isLoaded={isLoaded} />
+      <SignupFormModal />
     </div>
   );
 }
