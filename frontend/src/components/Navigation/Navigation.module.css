@@ -1,5 +1,7 @@
 .container {
-  background-color: darkcyan;
+  background-color: #1e4d2b;
+  border-bottom: 1px solid darkcyan;
+  box-shadow: 0 0 1px 1px darkcyan;
   display: flex;
   justify-content: space-between;
   align-items: center;

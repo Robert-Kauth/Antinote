@@ -27,11 +27,11 @@ const Navigation = ({ isLoaded }) => {
     );
   } else {
     sessionLinks = (
-      <nav className={styles.container}>
+      <div>
         <span className={styles.navLink}>
           <LoginFormModal />
         </span>
-      </nav>
+      </div>
     );
   }
   return (
