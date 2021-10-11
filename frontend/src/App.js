@@ -15,6 +15,7 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
+
   return (
     <div>
       <Navigation isLoaded={isLoaded} />
@@ -23,10 +24,10 @@ function App() {
           <Route exact path="/">
             <Home></Home>
           </Route>
-          <Route path="/api/notebooks">
+          <Route path="/notebooks">
             <NoteBooks> </NoteBooks>
           </Route>
-          <Route path="/api/notes">
+          <Route path="/notes">
             <Notes></Notes>
           </Route>
         </Switch>

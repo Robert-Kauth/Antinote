@@ -4,7 +4,7 @@ const router = express.Router();
 /****************************Routers*****************************/
 const apiRouter = require("./api");
 const notebooksRouter = require("./notebooks");
-const notesRouter = require("./Notes");
+const notesRouter = require("./notes");
 
 router.use("/api", apiRouter);
 router.use("/notebooks", notebooksRouter);
