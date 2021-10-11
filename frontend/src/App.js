@@ -4,6 +4,9 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import SignupFormModal from "./components/SignupFormModal";
+import { Switch, Route } from "react-router";
+import NoteBooks from "./components/Notebooks";
+import Notes from "./components/Notes";
 
 function App() {
   const dispatch = useDispatch();
@@ -15,7 +18,21 @@ function App() {
   return (
     <div>
       <Navigation isLoaded={isLoaded} />
-      <SignupFormModal />
+      {isLoaded ? (
+        <Switch>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+          <Route path="/api/notebooks">
+            <NoteBooks> </NoteBooks>
+          </Route>
+          <Route path="/api/notes">
+            <Notes></Notes>
+          </Route>
+        </Switch>
+      ) : (
+        <SignupFormModal />
+      )}
     </div>
   );
 }

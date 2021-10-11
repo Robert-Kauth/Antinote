@@ -7,6 +7,7 @@ import styles from "./Navigation.module.css";
 import Icon from "@mdi/react";
 import { mdiHomeCircle } from "@mdi/js";
 import styled from "styled-components";
+import ProfileLinks from "./ProfileLinks";
 
 const StyledIcon = styled(Icon)`
   color: darkcyan;
@@ -17,7 +18,12 @@ const Navigation = ({ isLoaded }) => {
 
   let sessionLinks;
   if (sessionUser) {
-    sessionLinks = <ProfileButton user={sessionUser} />;
+    sessionLinks = (
+      <>
+        <ProfileLinks />
+        <ProfileButton user={sessionUser} />
+      </>
+    );
   } else {
     sessionLinks = (
       <div>
