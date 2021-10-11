@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
@@ -11,6 +11,7 @@ import Notes from "./components/Notes";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const currentUser = useSelector((state) => state.session.user);
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -19,21 +20,18 @@ function App() {
   return (
     <div>
       <Navigation isLoaded={isLoaded} />
-      {isLoaded ? (
-        <Switch>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route path="/notebooks">
-            <NoteBooks> </NoteBooks>
-          </Route>
-          <Route path="/notes">
-            <Notes></Notes>
-          </Route>
-        </Switch>
-      ) : (
-        <SignupFormModal />
-      )}
+      {!currentUser && <SignupFormModal />}
+      <Switch>
+        <Route exact path="/">
+          <Home></Home>
+        </Route>
+        <Route path="/notebooks">
+          <NoteBooks> </NoteBooks>
+        </Route>
+        <Route path="/notes">
+          <Notes></Notes>
+        </Route>
+      </Switch>
     </div>
   );
 }
