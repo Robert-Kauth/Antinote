@@ -3,8 +3,12 @@ const router = express.Router();
 
 /****************************Routers*****************************/
 const apiRouter = require("./api");
+const notebooksRouter = require("./notebooks");
+const notesRouter = require("./Notes");
 
 router.use("/api", apiRouter);
+router.use("/notebooks", notebooksRouter);
+router.use("/notes", notesRouter);
 
 /****************************Static routes*****************************/
 // Serve React build files in production
