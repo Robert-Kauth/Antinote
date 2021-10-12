@@ -5,6 +5,7 @@ import Icon from "@mdi/react";
 import { mdiAccountArrowDown, mdiAccount } from "@mdi/js";
 import styled from "styled-components";
 import styles from "./Navigation.module.css";
+
 const Button = styled.button`
   border-radius: 10px;
 `;

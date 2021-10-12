@@ -1,0 +1,41 @@
+.notebooksContainer {
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  margin: 0;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.menuContainer {
+  display: inline-flex;
+  flex-direction: column-reverse;
+  position: relative;
+}
+
+.notebooks {
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+}
+.menuContent {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  z-index: 1;
+  list-style-type: none;
+  border: 2px solid black;
+  padding: 0;
+}
+.textAreaContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}

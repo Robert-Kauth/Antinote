@@ -20,8 +20,8 @@ function App() {
   return (
     <div>
       <Navigation isLoaded={isLoaded} />
-      {!currentUser && <SignupFormModal />}
       <Switch>
+        {!currentUser && <SignupFormModal />}
         <Route exact path="/">
           <Home></Home>
         </Route>
