@@ -9,7 +9,7 @@ const {
   restoreUser,
 } = require("../../utils/auth");
 
-const db = require("../../db/models");
+const { Notebooks } = require("../../db/models");
 
 const router = express.Router();
 
@@ -24,15 +24,7 @@ router.get(
   requireAuth,
   asyncHandler(async (req, res, next) => {
     const { user } = req.user;
-    const userId = user.id;
-    console.log(user);
-
-    const notebooks = await db.Notebooks.findAll({
-      where: {
-        userId,
-      },
-    });
-    console.log(notebooks);
+    const notebooks = await Notebooks.findAll();
     return res.json(notebooks);
   })
 );
