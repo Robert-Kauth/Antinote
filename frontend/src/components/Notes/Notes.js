@@ -7,7 +7,6 @@ TODO Note component should only show notes belonging to current notebook when di
 const Notes = () => {
   return (
     <>
-      <h1>Hello from notes</h1>
       <div className={styles.notebookCardWrapper}>
         <NoteBookCard />
         <NoteBookCard />

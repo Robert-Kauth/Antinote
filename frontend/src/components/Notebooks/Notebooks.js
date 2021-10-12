@@ -32,7 +32,7 @@ const NoteBooks = () => {
           <Notes />
         </span>
         <main className={styles.textAreaContainer}>
-          <textarea name="note" cols="30" rows="10"></textarea>
+          <textarea name="note" cols="30" rows="9"></textarea>
           <span className={styles.menuContainer}>
             {!showMenu && (
               <Button onClick={show}>
