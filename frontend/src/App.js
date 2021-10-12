@@ -11,7 +11,7 @@ import Notes from "./components/Notes";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  const currentUser = useSelector((state) => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -21,8 +21,8 @@ function App() {
     <div>
       <Navigation isLoaded={isLoaded} />
       <Switch>
-        {!currentUser && <SignupFormModal />}
         <Route exact path="/">
+          {!sessionUser && <SignupFormModal />}
           <Home></Home>
         </Route>
         <Route path="/notebooks">
@@ -30,6 +30,9 @@ function App() {
         </Route>
         <Route path="/notes">
           <Notes></Notes>
+        </Route>
+        <Route>
+          <h1>Page not found</h1>
         </Route>
       </Switch>
     </div>
