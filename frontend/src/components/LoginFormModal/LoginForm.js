@@ -15,7 +15,8 @@ const LoginForm = () => {
 
   const demoLogin = (e) => {
     e.preventDefault();
-    return dispatch(sessionActions.demoLogin());
+    dispatch(sessionActions.demoLogin());
+    history.push("/");
   };
 
   const handleSubmit = (e) => {
