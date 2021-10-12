@@ -8,6 +8,8 @@ import Icon from "@mdi/react";
 import { mdiHomeCircle } from "@mdi/js";
 import styled from "styled-components";
 import ProfileLinks from "./ProfileLinks";
+import SearchBar from "./Search";
+import LogoutButton from "./Logout";
 
 const StyledIcon = styled(Icon)`
   color: darkcyan;
@@ -20,8 +22,10 @@ const Navigation = ({ isLoaded }) => {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <ProfileLinks />
         <ProfileButton user={sessionUser} />
+        <SearchBar />
+        <ProfileLinks />
+        <LogoutButton />
       </>
     );
   } else {

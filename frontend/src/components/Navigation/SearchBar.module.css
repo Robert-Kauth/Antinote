@@ -1,0 +1,15 @@
+.searchBar {
+  display: inline-flex;
+  justify-content: center;
+}
+
+.searchIcon {
+  width: 20px;
+  height: 25px;
+}
+
+.searchButton {
+  display: inline-flex;
+  width: 35px;
+  height: 30px;
+}

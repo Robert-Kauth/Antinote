@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import * as sessionActions from "../../store/session";
+
 import Icon from "@mdi/react";
 import { mdiAccountArrowDown, mdiAccount } from "@mdi/js";
 import styled from "styled-components";
@@ -28,11 +28,6 @@ const ProfileButton = ({ user }) => {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-  const logout = (e) => {
-    e.preventDefault();
-    dispatch(sessionActions.logout());
-  };
-
   return (
     <div className={styles.profileButton}>
       <Button onClick={openMenu}>
@@ -45,11 +40,6 @@ const ProfileButton = ({ user }) => {
         <ul className={styles.profileDropdown}>
           <li className={styles.profileContent}>{user.username}</li>
           <li className={styles.profileContent}>{user.email}</li>
-          <li className={styles.profileContentButton}>
-            <button className={styles.logout} onClick={logout}>
-              Log Out
-            </button>
-          </li>
         </ul>
       )}
     </div>
