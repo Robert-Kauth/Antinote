@@ -22,10 +22,14 @@ const Navigation = ({ isLoaded }) => {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <ProfileButton user={sessionUser} />
+        <span className={styles.profileHome}>
+          <ProfileButton user={sessionUser} />
+        </span>
         <SearchBar />
-        <ProfileLinks />
-        <LogoutButton />
+        <span className={styles.linksContainer}>
+          <ProfileLinks />
+          <LogoutButton />
+        </span>
       </>
     );
   } else {

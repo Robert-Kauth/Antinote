@@ -1,0 +1,10 @@
+.logout {
+  padding: 5px;
+}
+.logoutButton {
+  font-size: 18px;
+}
+.logout {
+  border-radius: 2px;
+  background-color: #00ff7f;
+}

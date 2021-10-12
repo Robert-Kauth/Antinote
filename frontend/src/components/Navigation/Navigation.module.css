@@ -1,6 +1,7 @@
 .container {
   display: flex;
   align-items: center;
+  justify-content: space-around;
   background-color: #087830;
   border: 2px solid darkcyan;
   border-style: inset;
@@ -20,7 +21,7 @@ a {
   text-decoration: none;
 }
 .activeNav {
-  background-color: aliceblue;
+  background-color: #00ff7f;
   text-decoration: none;
 }
 .loginModal {
@@ -32,12 +33,7 @@ a {
 .profile {
   padding: 5px;
 }
-.logout {
-  padding: 5px;
-}
-.logoutButton {
-  font-size: 18px;
-}
+
 .profileButton {
   position: relative;
   margin: 0 5px;
@@ -58,7 +54,10 @@ a {
   display: flex;
   justify-content: center;
 }
-.logout {
-  border-radius: 2px;
-  background-color: #00ff7f;
+.linksContainer {
+  display: inline-flex;
+}
+.profileHome {
+  display: inline-flex;
+  align-content: center;
 }
