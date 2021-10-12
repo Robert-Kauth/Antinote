@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { mdiMenu, mdiMenuOpen } from "@mdi/js";
 import styles from "./Notebook.module.css";
 import Notes from "../Notes";
+import Editor from "../Editor";
 
 const Button = styled.button`
   display: flex;
@@ -32,6 +33,9 @@ const NoteBooks = () => {
           <Notes />
         </span>
         <main className={styles.textAreaContainer}>
+          <div className={styles.editorWrapper}>
+            <Editor />
+          </div>
           <textarea name="note" cols="30" rows="9"></textarea>
           <span className={styles.menuContainer}>
             {!showMenu && (

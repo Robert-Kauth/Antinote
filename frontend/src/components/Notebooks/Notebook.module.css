@@ -40,3 +40,6 @@
   justify-content: center;
   align-items: flex-start;
 }
+.editorWrapper {
+  border: 2px solid black;
+}
