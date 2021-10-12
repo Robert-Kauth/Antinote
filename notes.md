@@ -106,3 +106,37 @@
   - Notebook feed component (displays all notes in specific notebook)
     - Note book title
     - note card components
+
+```js
+// faker seed data templates
+{
+          userId: 1,
+          notebookId: 1,
+          title: faker.lorem.sentence(),
+          content: faker.lorem.sentences(),
+        },
+        {
+          userId: 1,
+          notebookId: 2,
+          title: faker.lorem.sentence(),
+          content: faker.lorem.sentences(),
+        },
+        {
+          userId: 1,
+          notebookId: 3,
+          title: faker.lorem.sentence(),
+          content: faker.lorem.sentences(),
+        },
+        {
+          userId: 1,
+          notebookId: 4,
+          title: faker.lorem.sentence(),
+          content: faker.lorem.sentences(),
+        },
+        {
+          userId: 1,
+          notebookId: 5,
+          title: faker.lorem.sentence(),
+          content: faker.lorem.sentences(),
+        },
+```
