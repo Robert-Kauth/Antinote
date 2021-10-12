@@ -6,12 +6,12 @@ const Home = () => {
 
   return (
     <div className={styles.notebookContainer}>
-      <div>
-        <h2>Title of Most recently edited notebook</h2>
+      <div className={styles.titleContainer}>
+        <h2 className={styles.titleText}>
+          Title of Most recently edited notebook
+        </h2>
       </div>
-      <div>
-        <NoteCard></NoteCard>
-      </div>
+      <NoteCard></NoteCard>
     </div>
   );
 };

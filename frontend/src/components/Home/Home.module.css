@@ -2,4 +2,17 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border: 2px solid red;
+  padding: 0 50px;
+}
+.titleContainer {
+  border: 2px solid black;
+}
+.titleText {
+  display: flex;
+  justify-content: center;
+}
+.notebookContainer {
+  display: flex;
+  justify-content: center;
 }

@@ -1,11 +1,14 @@
 import React from "react";
+import styles from "./NoteCard.module.css";
+
+//TODO make note content display list of notes cards in current notebook
 const NoteCard = () => {
   return (
-    <div>
+    <div className={styles.noteCardContainer}>
       <div>
-        <h2>NoteCard Title</h2>
+        <p>NoteCard Title</p>
       </div>
-      <div>
+      <div className={styles.noteContent}>
         <p>Note Content</p>
       </div>
     </div>

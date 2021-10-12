@@ -1,0 +1,10 @@
+.noteCardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid orange;
+}
+.noteContent {
+  border: 2px solid green;
+}
