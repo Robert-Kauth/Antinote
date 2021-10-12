@@ -1,19 +1,108 @@
-Think in components:
-# Notes:
-1. Note card component- Read
-- Create: Form for creating note card.
-- Update:
-  - edit card component:
-	- delete card component
+# Think in components:
 
+## Home Page:
 
-2. Notebook card component
-- contains a feed component containing all note card components associated with notebook
-  - reuse edit card component here to alter the name of a notebook
-  - reuse delete card component to delete notebook and associated notes.
+- Navbar component:
+	- NavLinks:
+			1. Home NavLink
+			2. Note books NavLink
+			3. Notes NavLink
+	- Profile Dropdown Button component
+	- Logout button Component
 
-3. Feed component:
-- Displays all note cards contained in a specific notebook.
-  - In home route feed component will display all notebooks.
+---
 
-4. Sidebar component:
+- Profile Dropdown Component
+  - User info Component
+    - username
+    - user email
+  - Notebooks component
+    - My notebooks title
+    - Notebook card component (x4 ?)
+    - Create new Notebook button component
+  - Recent Notes component
+    - Title = Recent Notes
+    - Recent notes card component
+
+---
+
+- Most recent Notebook component
+  - Title = Last updated Notebook title
+  - Notebook note card components (x9 ?)
+
+---
+---
+
+## Notebooks Page:
+
+- Navbar component:
+	- NavLinks:
+			1. Home NavLink
+			2. Note books NavLink
+			3. Notes NavLink
+	- Profile Dropdown Button component
+	- Logout button Component
+
+---
+
+- Profile Dropdown Component
+  - User info Component
+    - username
+    - user email
+  - Notebooks component
+    - My notebooks title
+    - Notebook card component (x4 ?)
+    - Create new Notebook button component
+  - Recent Notes component
+    - Title = Recent Notes
+    - Recent notes card component
+
+---
+
+- Current Notebook component
+  - Current Notebook Title
+  - Note card components
+
+---
+
+- Note Creation Component
+  - Note Title Input Component
+  - Text Area Component
+  - Crud Buttons component
+    - Save button
+    - edit button
+    - delete button
+
+---
+---
+
+## Notes Page:
+
+- Navbar component:
+	- NavLinks:
+			1. Home NavLink
+			2. Note books NavLink
+			3. Notes NavLink
+	- Profile Dropdown Button component
+	- Logout button Component
+
+---
+
+- Profile Dropdown Component
+  - User info Component
+    - username
+    - user email
+  - Notebooks component
+    - My notebooks title
+    - Notebook card component (x4 ?)
+    - Create new Notebook button component
+  - Recent Notes component
+    - Title = Recent Notes
+    - Recent notes card component
+
+---
+
+- Notbook Feed component
+  - Notebook feed component (displays all notes in specific notebook)
+    - Note book title
+    - note card components
