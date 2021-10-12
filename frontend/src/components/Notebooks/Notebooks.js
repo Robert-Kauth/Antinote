@@ -34,9 +34,17 @@ const NoteBooks = () => {
         <main className={styles.textAreaContainer}>
           <textarea name="note" cols="30" rows="10"></textarea>
           <span className={styles.menuContainer}>
-            <Button onClick={show}>
-              <Icon path={mdiMenu} size={0.5}></Icon>
-            </Button>
+            {!showMenu && (
+              <Button onClick={show}>
+                <Icon path={mdiMenu} size={0.5}></Icon>
+              </Button>
+            )}
+            {showMenu && (
+              <Button onClick={show}>
+                <Icon path={mdiMenuOpen} size={0.5}></Icon>
+              </Button>
+            )}
+
             {showMenu && (
               <ul className={styles.menuContent}>
                 <li className={styles.listItem}>create</li>
