@@ -1,0 +1,7 @@
+.noteBookWrapper {
+  border: 2px solid yellowgreen;
+  display: inline-flex;
+  flex-direction: column;
+}
+.noteCardWrapper {
+}

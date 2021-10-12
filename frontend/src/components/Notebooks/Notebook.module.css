@@ -12,7 +12,8 @@
 .wrapper {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-end;
+  gap: 10px;
 }
 .menuContainer {
   display: inline-flex;
