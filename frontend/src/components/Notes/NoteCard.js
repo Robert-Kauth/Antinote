@@ -14,14 +14,14 @@ const NoteCard = ({ notebook }) => {
   return (
     <span className={styles.noteCardContainer}>
       {notes.map((note) => (
-        <div key={note.id} className={styles.noteWrapper}>
+        <span key={note.id} className={styles.noteWrapper}>
           <div>
             <div className={styles.noteTitle}>{note.title}</div>
           </div>
           <div>
             <div className={styles.noteContent}>{note.content}</div>
           </div>
-        </div>
+        </span>
       ))}
     </span>
   );

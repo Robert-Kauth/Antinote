@@ -28,9 +28,7 @@ const NoteBooks = () => {
         <p className={styles.title}>NoteBook</p>
       </header>
       <div className={styles.wrapper}>
-        <span className={styles.currentNotes}>
-          <NotesbookCard />
-        </span>
+        <NotesbookCard />
         <main className={styles.textAreaContainer}>
           <div className={styles.editorWrapper}>
             <Editor />

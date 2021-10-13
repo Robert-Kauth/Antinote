@@ -1,7 +1,6 @@
 .noteCardContainer {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
+  display: flex;
+  justify-items: center;
   align-content: center;
   flex-wrap: wrap;
   padding: 10px;
@@ -25,4 +24,5 @@
 }
 .noteWrapper {
   border: 2px solid black;
+  height: fit-content;
 }
