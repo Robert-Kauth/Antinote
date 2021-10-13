@@ -21,6 +21,7 @@ const NoteBooks = () => {
   const { id } = useParams();
   const notebook = useSelector((state) => state.notebooks[id]);
   const [showMenu, setShowMenu] = useState(false);
+  const [text, setText] = useState();
 
   useEffect(() => {
     dispatch(loadNotebooks());
@@ -28,6 +29,21 @@ const NoteBooks = () => {
   const show = () => {
     return setShowMenu(!showMenu);
   };
+
+  const handleSave = (e) => {
+    e.preventDefault();
+    setText();
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  //Todo dispatch action to edit current note
+  const handleEdit = (e) => {
+    e.preventDefault();
+  };
+
   //TODO make create, edit, delete in dropdown menu dynamic
   return (
     <div className={styles.notebooksContainer}>
@@ -37,30 +53,19 @@ const NoteBooks = () => {
       <div className={styles.wrapper}>
         <NotesbookCard notebook={notebook} />
         <main className={styles.textAreaContainer}>
-          <div className={styles.editorWrapper}>
-            <Editor />
+          <div>
+            <textarea
+              name="note"
+              cols="30"
+              rows="9"
+              value={text}
+              onChange={handleSave}
+              placeholder="Create your new note here"></textarea>
+            <div className={styles.crudButtons}>
+              <button onClick={handleSubmit}>Save To Notebook</button>
+              <button onClick={handleEdit}>Edit Note</button>
+            </div>
           </div>
-          <textarea name="note" cols="30" rows="9"></textarea>
-          <span className={styles.menuContainer}>
-            {!showMenu && (
-              <Button onClick={show}>
-                <Icon path={mdiMenu} size={0.5}></Icon>
-              </Button>
-            )}
-            {showMenu && (
-              <Button onClick={show}>
-                <Icon path={mdiMenuOpen} size={0.5}></Icon>
-              </Button>
-            )}
-
-            {showMenu && (
-              <ul className={styles.menuContent}>
-                <li className={styles.listItem}>create</li>
-                <li className={styles.listItem}>edit</li>
-                <li className={styles.listItem}>delete</li>
-              </ul>
-            )}
-          </span>
         </main>
       </div>
     </div>
