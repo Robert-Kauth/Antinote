@@ -38,19 +38,22 @@ const remove = (notebookId) => {
 export const loadNotebooks = () => async (dispatch) => {
   const res = await csrfFetch("/api/notebooks");
   const notebooks = await res.json();
-  console.log(notebooks, "***********");
   dispatch(load(notebooks));
 };
 /*-------------REDUCERS-------------*/
-const initialState = { notebooks: null };
+const initialState = {};
 
 const notebooksReducer = (state = initialState, action) => {
-  let newState;
   switch (action.type) {
     case LOAD_NOTEBOOKS: {
-      newState = Object.assign({}, state);
-      newState.notebooks = action.notebooks;
-      return newState;
+      const userNotebooks = {};
+      action.notebooks.forEach((notebook) => {
+        userNotebooks[notebook.id] = notebook;
+      });
+      return {
+        ...state,
+        ...userNotebooks,
+      };
     }
     default:
       return state;
