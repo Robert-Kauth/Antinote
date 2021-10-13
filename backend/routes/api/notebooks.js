@@ -24,13 +24,15 @@ router.get(
   requireAuth,
   asyncHandler(async (req, res, next) => {
     const userId = req.user.id;
-    console.log(userId, "*****");
     const notebooks = await Notebook.findAll({
       where: {
         userId,
       },
+      include: {
+        model: User,
+      },
     });
-    return await res.json(notebooks);
+    return res.json(notebooks);
   })
 );
 
