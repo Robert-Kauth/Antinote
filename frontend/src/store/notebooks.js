@@ -36,7 +36,7 @@ const remove = (notebookId) => {
 
 /*-------------THUNK CREATORS-------------*/
 export const loadNotebooks = () => async (dispatch) => {
-  const res = await csrfFetch("/notebooks");
+  const res = await csrfFetch("/api/notebooks");
   const notebooks = await res.json();
   console.log(notebooks, "***********");
   dispatch(load(notebooks));
