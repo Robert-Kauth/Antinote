@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid black;
+}
+.noteTitle {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background-color: lightgreen;
+  width: 25vw;
+}
+.noteContent {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background-color: lightseagreen;
+  width: 25vw;
+  margin: 0;
+}

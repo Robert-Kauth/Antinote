@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import styles from "./Home.module.css";
 import NotebookCard from "../Notebooks/NotebookCard";
 import { loadNotebooks } from "../../store/notebooks";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,9 @@ const Home = () => {
     <div className={styles.notebookContainer}>
       {notebooks.map((notebook) => (
         <div key={notebook.id} className={styles.notebook}>
-          <h2 className={styles.titleText}>{notebook.title}</h2>
+          <Link to={`/notebooks/${notebook.id}`}>
+            <p className={styles.titleText}>{notebook.title}</p>
+          </Link>
           <span>
             <NotebookCard notebook={notebook}></NotebookCard>
           </span>

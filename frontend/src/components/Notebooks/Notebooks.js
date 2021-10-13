@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 import Icon from "@mdi/react";
 import styled from "styled-components";
 import { mdiMenu, mdiMenuOpen } from "@mdi/js";
 import styles from "./Notebook.module.css";
 import NotesbookCard from "./NotebookCard";
 import Editor from "../Editor";
+import { loadNotebooks } from "../../store/notebooks";
 
 const Button = styled.button`
   display: flex;
@@ -15,20 +17,25 @@ const Button = styled.button`
 `;
 
 const NoteBooks = () => {
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const notebook = useSelector((state) => state.notebooks[id]);
   const [showMenu, setShowMenu] = useState(false);
 
+  useEffect(() => {
+    dispatch(loadNotebooks());
+  }, [dispatch]);
   const show = () => {
     return setShowMenu(!showMenu);
   };
-
   //TODO make create, edit, delete in dropdown menu dynamic
   return (
     <div className={styles.notebooksContainer}>
       <header>
-        <p className={styles.title}>NoteBook</p>
+        <p className={styles.title}>{notebook.title}</p>
       </header>
       <div className={styles.wrapper}>
-        <NotesbookCard />
+        <NotesbookCard notebook={notebook} />
         <main className={styles.textAreaContainer}>
           <div className={styles.editorWrapper}>
             <Editor />

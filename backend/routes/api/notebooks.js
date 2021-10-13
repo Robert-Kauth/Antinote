@@ -29,4 +29,12 @@ router.get(
   })
 );
 
+router.get(
+  "/:id",
+  asyncHandler(async (req, res) => {
+    const notebook = await Notebook.findByPk(req.params.id);
+    return res.json(notebook);
+  })
+);
+
 module.exports = router;

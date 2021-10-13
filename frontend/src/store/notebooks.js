@@ -1,6 +1,7 @@
 import { csrfFetch } from "./csrf";
 /*-------------Types-------------*/
 const LOAD_NOTEBOOKS = "notebook/load";
+const LOAD_ONE = "notebook/loadNotebook";
 const ADD_NOTEBOOK = "notebook/add";
 const UPDATE_NOTEBOOK = "notebook/update";
 const REMOVE_NOTEBOOK = "notebook/remove";
@@ -10,6 +11,12 @@ const load = (notebooks) => {
   return {
     type: LOAD_NOTEBOOKS,
     notebooks,
+  };
+};
+const loadNotebook = (notebookId) => {
+  return {
+    type: LOAD_ONE,
+    notebookId,
   };
 };
 
@@ -40,6 +47,15 @@ export const loadNotebooks = () => async (dispatch) => {
   const notebooks = await res.json();
   dispatch(load(notebooks));
   return res;
+};
+
+export const singleNotebook = (id) => async (dispatch) => {
+  const res = await csrfFetch(`/api/notebooks/${id}`);
+  if (res.ok) {
+    const notebook = await res.json();
+    dispatch(loadNotebook(notebook));
+    return res;
+  }
 };
 
 export const addNotebook = () => async (dispatch) => {

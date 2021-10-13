@@ -25,7 +25,7 @@ function App() {
           {!sessionUser && <SignupFormModal />}
           <Home></Home>
         </Route>
-        <Route path="/notebooks">
+        <Route path="/notebooks/:id">
           <NoteBooks> </NoteBooks>
         </Route>
         <Route path="/notes">
