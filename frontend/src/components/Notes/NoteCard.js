@@ -12,18 +12,14 @@ const NoteCard = ({ notebook }) => {
     dispatch(loadNotes());
   }, [dispatch]);
   return (
-    <span className={styles.noteCardContainer}>
+    <div>
       {notes.map((note) => (
-        <span key={note.id} className={styles.noteWrapper}>
-          <div>
-            <div className={styles.noteTitle}>{note.title}</div>
-          </div>
-          <div>
-            <div className={styles.noteContent}>{note.content}</div>
-          </div>
+        <span key={note.id} className={styles.wrapper}>
+          <div className={styles.noteTitle}>{note.title}</div>
+          <div className={styles.noteContent}>{note.content}</div>
         </span>
       ))}
-    </span>
+    </div>
   );
 };
 
