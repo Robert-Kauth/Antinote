@@ -6,7 +6,7 @@ export const ProfileLinks = () => {
   return (
     <div>
       <NavLink activeClassName={styles.activeNav} to="/notebooks">
-        Notebooks
+        Notebook
       </NavLink>
       <NavLink activeClassName={styles.activeNav} to="/notes">
         Notes

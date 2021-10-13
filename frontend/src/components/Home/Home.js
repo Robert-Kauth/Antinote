@@ -17,9 +17,11 @@ const Home = () => {
     <div className={styles.notebookContainer}>
       {notebooks.map((notebook) => (
         <div key={notebook.id} className={styles.notebook}>
-          <Link to={`/notebooks/${notebook.id}`}>
-            <p className={styles.titleText}>{notebook.title}</p>
-          </Link>
+          <div className={styles.link}>
+            <Link to={`/notebooks/${notebook.id}`}>
+              <p className={styles.titleText}>{notebook.title}</p>
+            </Link>
+          </div>
           <span>
             <NotebookCard notebook={notebook}></NotebookCard>
           </span>

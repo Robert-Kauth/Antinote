@@ -15,3 +15,7 @@
 .notebook {
   border: 2px dashed purple;
 }
+.link {
+  display: flex;
+  justify-content: center;
+}
