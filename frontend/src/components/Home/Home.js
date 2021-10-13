@@ -7,7 +7,6 @@ import { loadNotebooks } from "../../store/notebooks";
 const Home = () => {
   const dispatch = useDispatch();
   const notebooks = useSelector((state) => Object.values(state.notebooks));
-  console.log(notebooks);
 
   useEffect(() => {
     dispatch(loadNotebooks());

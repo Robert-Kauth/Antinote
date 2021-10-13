@@ -1,6 +1,12 @@
 .notebookCardWrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: 3fr;
+  grid-template-rows: auto;
+  grid-template-areas: "card card card";
   justify-content: center;
-  gap: 10px;
+  align-content: center;
   padding-top: 20px;
+}
+.noteCard {
+  grid-area: card;
 }

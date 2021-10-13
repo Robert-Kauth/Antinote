@@ -1,6 +1,8 @@
 .noteBookWrapper {
-  border: 2px solid yellowgreen;
   display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  align-content: center;
 }
 .noteCardWrapper {
   padding-bottom: 10px;

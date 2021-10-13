@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 
 import Icon from "@mdi/react";
 import styled from "styled-components";

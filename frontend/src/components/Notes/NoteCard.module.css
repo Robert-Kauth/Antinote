@@ -2,9 +2,27 @@
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  border: 2px solid orange;
+  align-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin: 10px;
+  gap: 10px;
+}
+.noteTitle {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background-color: red;
+  width: 25vw;
 }
 .noteContent {
-  border: 2px solid green;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background-color: purple;
+  width: 25vw;
+  margin: 0;
+}
+.noteWrapper {
+  border: 2px solid black;
 }
