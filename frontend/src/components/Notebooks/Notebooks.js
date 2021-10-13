@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+
 import Icon from "@mdi/react";
 import styled from "styled-components";
 import { mdiMenu, mdiMenuOpen } from "@mdi/js";
 import styles from "./Notebook.module.css";
-import Notes from "../Notes";
+import NotesbookCard from "./NotebookCard";
 import Editor from "../Editor";
 
 const Button = styled.button`
@@ -20,17 +22,15 @@ const NoteBooks = () => {
     return setShowMenu(!showMenu);
   };
 
-  //TODO make title dynamic
-  const title = "Notebook Name";
   //TODO make create, edit, delete in dropdown menu dynamic
   return (
     <div className={styles.notebooksContainer}>
       <header>
-        <p className={styles.title}>{title}</p>
+        <p className={styles.title}>NoteBook</p>
       </header>
       <div className={styles.wrapper}>
         <span className={styles.currentNotes}>
-          <Notes />
+          <NotesbookCard />
         </span>
         <main className={styles.textAreaContainer}>
           <div className={styles.editorWrapper}>

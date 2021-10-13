@@ -28,9 +28,6 @@ router.get(
       where: {
         userId,
       },
-      include: {
-        model: User,
-      },
     });
     return res.json(notebooks);
   })

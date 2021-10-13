@@ -2,16 +2,13 @@ import React from "react";
 import NoteCard from "../Notes/NoteCard";
 import styles from "./NoteBookCard.module.css";
 
-const NoteBookCard = () => {
+const NoteBookCard = ({ notebook }) => {
+  console.log(notebook);
   return (
     <div className={styles.noteBookWrapper}>
-      <div>
-        <p>NoteBook title</p>
-      </div>
       <div className={styles.noteCardWrapper}>
         <span>
-          <NoteCard />
-          <NoteCard />
+          <NoteCard notebook={notebook} />
         </span>
       </div>
     </div>

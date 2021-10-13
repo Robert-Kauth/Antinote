@@ -1,18 +1,17 @@
 .notebookContainer {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
   border: 2px solid red;
   padding: 0 50px;
-}
-.titleContainer {
-  border: 2px solid black;
 }
 .titleText {
   display: flex;
   justify-content: center;
+  border: 2px solid blue;
 }
 .notebookContainer {
   display: flex;
   justify-content: center;
+}
+.notebook {
+  border: 2px dashed purple;
 }

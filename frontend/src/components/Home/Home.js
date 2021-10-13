@@ -1,17 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import styles from "./Home.module.css";
-import NoteCard from "../Notes/NoteCard";
+import NotebookCard from "../Notebooks/NotebookCard";
+import { loadNotebooks } from "../../store/notebooks";
+
 const Home = () => {
-  //Todo make h2 title dynamic
+  const dispatch = useDispatch();
+  const notebooks = useSelector((state) => Object.values(state.notebooks));
+  console.log(notebooks);
+
+  useEffect(() => {
+    dispatch(loadNotebooks());
+  }, [dispatch]);
 
   return (
     <div className={styles.notebookContainer}>
-      <div className={styles.titleContainer}>
-        <h2 className={styles.titleText}>
-          Title of Most recently edited notebook
-        </h2>
-      </div>
-      <NoteCard></NoteCard>
+      {notebooks.map((notebook) => (
+        <div key={notebook.id} className={styles.notebook}>
+          <h2 className={styles.titleText}>{notebook.title}</h2>
+          <span>
+            <NotebookCard notebook={notebook}></NotebookCard>
+          </span>
+        </div>
+      ))}
     </div>
   );
 };

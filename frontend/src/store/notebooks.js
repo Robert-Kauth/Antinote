@@ -39,7 +39,15 @@ export const loadNotebooks = () => async (dispatch) => {
   const res = await csrfFetch("/api/notebooks");
   const notebooks = await res.json();
   dispatch(load(notebooks));
+  return res;
 };
+
+export const addNotebook = () => async (dispatch) => {
+  const res = await csrfFetch("/api/notebooks", {
+    method: "POST",
+  });
+};
+
 /*-------------REDUCERS-------------*/
 const initialState = {};
 
