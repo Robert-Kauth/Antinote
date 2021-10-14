@@ -20,5 +20,14 @@
   justify-content: center;
 }
 .delete {
-  margin: 20px;
+  margin: 20px 2px;
+  padding: 5px;
+}
+.deleteButton {
+  background-color: red;
+  color: black;
+}
+.editModal {
+  margin: 20px 2px;
+  padding: 5px;
 }

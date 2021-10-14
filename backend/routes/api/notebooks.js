@@ -38,19 +38,35 @@ router.delete(
     const notebook = await Notebook.findByPk(req.params.id);
     console.log(notebook, "**************");
     if (!notebook) {
-      throw new Error("Cannot Find Item");
+      throw new Error("Cannot Find Notebook");
     }
     await notebook.destroy();
     return res.json(req.params.id);
   })
 );
 
-router.get(
+router.patch(
   "/:id",
   asyncHandler(async (req, res) => {
     const notebook = await Notebook.findByPk(req.params.id);
+    console.log(notebook, "**************");
+    const { title } = req.body;
+    console.log(req.body, "!!!!!!!!!!!!!!!!");
+    console.log(title);
+    if (!notebook) {
+      throw new Error("Cannot Find Notebook");
+    }
+    await notebook.update({ title });
     return res.json(notebook);
   })
 );
+
+// router.get(
+//   "/:id",
+//   asyncHandler(async (req, res) => {
+//     const notebook = await Notebook.findByPk(req.params.id);
+//     return res.json(notebook);
+//   })
+// );
 
 module.exports = router;

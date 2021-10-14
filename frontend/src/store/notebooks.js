@@ -27,10 +27,10 @@ const add = (notebook) => {
   };
 };
 
-const update = (notebookId) => {
+const update = (notebook) => {
   return {
     type: UPDATE_NOTEBOOK,
-    notebookId,
+    notebook,
   };
 };
 
@@ -68,16 +68,15 @@ export const addNotebook = (payload) => async (dispatch) => {
   }
 };
 
-export const updateNotebook = (payload) => async (dispatch) => {
-  const res = await csrfFetch(`/api/notebooks/${payload.id}`, {
-    method: "PUT",
+export const updateNotebook = (payload, id) => async (dispatch) => {
+  const res = await csrfFetch(`/api/notebooks/${id}`, {
+    method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
   });
   if (res.ok) {
     const notebook = await res.json();
     dispatch(update(notebook));
-    return notebook;
   }
 };
 
@@ -110,7 +109,7 @@ const notebookReducer = (state = initialState, action) => {
     case UPDATE_NOTEBOOK: {
       return {
         ...state,
-        [action.notebooks.id]: action.notebooks,
+        [action.notebook.id]: action.notebook,
       };
     }
     case REMOVE_NOTEBOOK: {
