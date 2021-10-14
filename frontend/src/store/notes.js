@@ -41,6 +41,42 @@ export const loadNotes = () => async (dispatch) => {
   return res;
 };
 
+export const addNote = (payload) => async (dispatch) => {
+  const res = await csrfFetch("/api/notes/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (res.ok) {
+    const note = await res.json();
+    dispatch(add(note));
+    return note;
+  }
+};
+
+export const updateNote = (payload) => async (dispatch) => {
+  const res = await csrfFetch(`/api/notes/${payload.id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (res.ok) {
+    const note = await res.json();
+    dispatch(update(note));
+    return note;
+  }
+};
+
+export const deleteNote = (noteId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/notes/${noteId}`, {
+    method: "DELETE",
+  });
+  if (res.ok) {
+    const note = await res.json();
+    dispatch(remove(note.id));
+  }
+};
+
 /*-------------REDUCERS-------------*/
 const initialState = {};
 const notesReducer = (state = initialState, action) => {
@@ -53,6 +89,13 @@ const notesReducer = (state = initialState, action) => {
       return {
         ...state,
         ...userNotes,
+      };
+    }
+    case ADD_NOTE:
+    case UPDATE_NOTE: {
+      return {
+        ...state,
+        [action.notes.id]: action.notes,
       };
     }
     default:

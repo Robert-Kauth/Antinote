@@ -19,3 +19,6 @@
   display: flex;
   justify-content: center;
 }
+.delete {
+  margin: 20px;
+}

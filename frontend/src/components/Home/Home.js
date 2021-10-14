@@ -21,6 +21,7 @@ const Home = () => {
             <Link to={`/notebooks/${notebook.id}`}>
               <p className={styles.titleText}>{notebook.title}</p>
             </Link>
+            <button className={styles.delete}>Delete</button>
           </div>
           <span>
             <NotebookCard notebook={notebook}></NotebookCard>
