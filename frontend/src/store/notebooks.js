@@ -34,10 +34,10 @@ const update = (notebookId) => {
   };
 };
 
-const remove = (notebookId) => {
+const remove = (id) => {
   return {
     type: REMOVE_NOTEBOOK,
-    notebookId,
+    id,
   };
 };
 
@@ -86,8 +86,8 @@ export const deleteNotebook = (id) => async (dispatch) => {
     method: "DELETE",
   });
   if (res.ok) {
-    const notebook = await res.json();
-    dispatch(remove(notebook.id));
+    const id = await res.json();
+    dispatch(remove(id));
   }
 };
 
@@ -115,7 +115,8 @@ const notebookReducer = (state = initialState, action) => {
     }
     case REMOVE_NOTEBOOK: {
       const newState = { ...state };
-      delete newState[action.notebookId];
+      console.log(action.id);
+      delete newState[action.id];
       return newState;
     }
     default:
