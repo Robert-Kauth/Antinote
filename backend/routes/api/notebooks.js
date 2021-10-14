@@ -29,6 +29,19 @@ router.get(
   })
 );
 
+router.delete(
+  "/:id",
+  asyncHandler(async (req, res) => {
+    const notebook = await Notebook.findByPk(id);
+    console.log(notebook);
+    if (!notebook) {
+      throw new Error("Cannot Find Item");
+    }
+    await Notebook.destroy({ where: { id: notebook.id } });
+    return notebook.id;
+  })
+);
+
 router.get(
   "/:id",
   asyncHandler(async (req, res) => {

@@ -20,11 +20,6 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(loadNotebooks());
-    dispatch(loadNotes());
-  }, [dispatch]);
-
   return (
     <div>
       <Navigation isLoaded={isLoaded} />

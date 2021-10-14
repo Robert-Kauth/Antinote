@@ -81,8 +81,8 @@ export const updateNotebook = (payload) => async (dispatch) => {
   }
 };
 
-export const deleteNotebook = (notebookId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/notebooks/${notebookId}`, {
+export const deleteNotebook = (id) => async (dispatch) => {
+  const res = await csrfFetch(`/api/notebooks/${id}`, {
     method: "DELETE",
   });
   if (res.ok) {
