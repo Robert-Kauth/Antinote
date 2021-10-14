@@ -4,11 +4,20 @@ import styles from "./Home.module.css";
 import NotebookCard from "../Notebooks/NotebookCard";
 import { deleteNotebook, loadNotebooks } from "../../store/notebooks";
 import { Link } from "react-router-dom";
+import { loadNotes } from "../../store/notes";
 
 const Home = () => {
   const dispatch = useDispatch();
   const notebooks = useSelector((state) => Object.values(state.notebooks));
 
+  useEffect(() => {
+    dispatch(loadNotebooks());
+    dispatch(loadNotes());
+  }, [dispatch]);
+
+  console.log(notebooks);
+
+  if (!notebooks.length) return null;
   return (
     <div className={styles.notebookContainer}>
       {notebooks.map((notebook) => (

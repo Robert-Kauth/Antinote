@@ -26,7 +26,10 @@ module.exports = (sequelize, DataTypes) => {
   );
   Note.associate = function (models) {
     Note.belongsTo(models.User, { foreignKey: "userId" });
-    Note.belongsTo(models.Notebook, { foreignKey: "notebookId" });
+    Note.belongsTo(models.Notebook, {
+      foreignKey: "notebookId",
+      hooks: true,
+    });
   };
   return Note;
 };

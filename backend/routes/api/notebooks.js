@@ -5,7 +5,7 @@ const { check } = require("express-validator");
 const { handleValidatoinErros } = require("../../utils/validation");
 const { requireAuth } = require("../../utils/auth");
 
-const { Notebook } = require("../../db/models");
+const { Notebook, Note } = require("../../db/models");
 
 const router = express.Router();
 
@@ -24,6 +24,9 @@ router.get(
       where: {
         userId,
       },
+      include: {
+        model: Note,
+      },
     });
     return res.json(notebooks);
   })
@@ -32,8 +35,8 @@ router.get(
 router.delete(
   "/:id",
   asyncHandler(async (req, res) => {
-    const notebook = await Notebook.findByPk(id);
-    console.log(notebook);
+    const notebook = await Notebook.findByPk(req.params.id);
+    console.log(notebook, "**************");
     if (!notebook) {
       throw new Error("Cannot Find Item");
     }

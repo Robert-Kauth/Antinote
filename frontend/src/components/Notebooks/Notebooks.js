@@ -23,9 +23,9 @@ const NoteBooks = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [text, setText] = useState();
 
-  // useEffect(() => {
-  //   dispatch(loadNotebooks());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(loadNotebooks());
+  }, [dispatch]);
 
   const show = () => {
     return setShowMenu(!showMenu);
@@ -44,7 +44,7 @@ const NoteBooks = () => {
   const handleEdit = (e) => {
     e.preventDefault();
   };
-
+  if (!notebook) return null;
   //TODO make create, edit, delete in dropdown menu dynamic
   return (
     <div className={styles.notebooksContainer}>

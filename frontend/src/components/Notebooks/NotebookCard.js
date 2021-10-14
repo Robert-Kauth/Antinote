@@ -9,7 +9,9 @@ const NoteBookCard = ({ notebook }) => {
   const notes = useSelector((state) => Object.values(state.notes));
 
   const notebookNotes = notes.filter((note) => note.notebookId === note.id);
-
+  useEffect(() => {
+    dispatch(loadNotes());
+  }, [dispatch]);
   //Todo dispatch action to edit current note
   const handleEdit = (e) => {
     e.preventDefault();
