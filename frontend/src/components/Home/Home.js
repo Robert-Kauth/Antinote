@@ -9,9 +9,9 @@ const Home = () => {
   const dispatch = useDispatch();
   const notebooks = useSelector((state) => Object.values(state.notebooks));
 
-  useEffect(() => {
-    dispatch(loadNotebooks());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(loadNotebooks());
+  // }, [dispatch]);
 
   return (
     <div className={styles.notebookContainer}>

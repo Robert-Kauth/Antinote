@@ -140,3 +140,8 @@
           content: faker.lorem.sentences(),
         },
 ```
+---
+
+Notebook card and noteCard essentially display the same thing. Choose one and delete the other.
+- noteBook card would be better named NoteCard and is the one to keep as it is rendered on almost all the pages anyway
+-

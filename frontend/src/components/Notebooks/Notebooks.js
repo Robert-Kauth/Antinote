@@ -23,9 +23,10 @@ const NoteBooks = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [text, setText] = useState();
 
-  useEffect(() => {
-    dispatch(loadNotebooks());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(loadNotebooks());
+  // }, [dispatch]);
+
   const show = () => {
     return setShowMenu(!showMenu);
   };

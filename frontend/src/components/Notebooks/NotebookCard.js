@@ -5,13 +5,15 @@ import { loadNotes } from "../../store/notes";
 import styles from "./NoteBookCard.module.css";
 
 const NoteBookCard = ({ notebook }) => {
+  //! notebook is undefined here
   const dispatch = useDispatch();
   const notes = useSelector((state) => Object.values(state.notes));
 
-  const notebookNotes = notes.filter((note) => note.notebookId === notebook.id);
-  useEffect(() => {
-    dispatch(loadNotes());
-  }, [dispatch]);
+  const notebookNotes = notes.filter((note) => note.notebookId === note.id);
+  //!loadNotes 2
+  // useEffect(() => {
+  //   dispatch(loadNotes());
+  // }, [dispatch]);
 
   //Todo dispatch action to delete current note
   const handleDelete = (e) => {
