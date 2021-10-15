@@ -6,14 +6,20 @@
 .titleText {
   display: flex;
   justify-content: center;
-  border: 2px solid blue;
+  background-color: #006600;
+  color: #e5e4e2;
+  padding: 5px 10px;
+  box-shadow: 0 0 2px 2px #ffff66;
 }
 .notebookContainer {
   display: flex;
   justify-content: center;
 }
 .notebook {
-  border: 2px dashed purple;
+  border: 2px solid lightseagreen;
+  background-color: #00a86b;
+  margin: 5px;
+  padding: 5px;
 }
 .link {
   display: flex;
@@ -29,7 +35,6 @@
 }
 .buttonContainer {
   display: flex;
-  border: 2px solid green;
   justify-content: space-between;
   padding: 5px;
 }
