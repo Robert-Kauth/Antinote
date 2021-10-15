@@ -1,0 +1,11 @@
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+}
+.input {
+  display: flex;
+  justify-content: center;
+}
+.form {
+  padding: 10px;
+}

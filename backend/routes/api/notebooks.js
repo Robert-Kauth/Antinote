@@ -32,6 +32,21 @@ router.get(
   })
 );
 
+router.post(
+  "/",
+  asyncHandler(async (req, res) => {
+    console.log(req.body, "@@@@@@@@@@@@");
+    const notebook = await Notebook.create({
+      userId: req.body.userId,
+      title: req.body.title,
+    });
+    if (!notebook) {
+      throw new Error("Unable to Create New Notebook");
+    }
+    return res.json(notebook);
+  })
+);
+
 router.delete(
   "/:id",
   asyncHandler(async (req, res) => {
@@ -56,13 +71,5 @@ router.patch(
     return res.json(notebook);
   })
 );
-
-// router.get(
-//   "/:id",
-//   asyncHandler(async (req, res) => {
-//     const notebook = await Notebook.findByPk(req.params.id);
-//     return res.json(notebook);
-//   })
-// );
 
 module.exports = router;

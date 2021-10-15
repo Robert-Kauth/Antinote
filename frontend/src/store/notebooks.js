@@ -1,7 +1,6 @@
 import { csrfFetch } from "./csrf";
 /*-------------Types-------------*/
 const LOAD_NOTEBOOKS = "notebook/load";
-const GET_NOTEBOOK = "notebook/get";
 const ADD_NOTEBOOK = "notebook/add";
 const UPDATE_NOTEBOOK = "notebook/update";
 const REMOVE_NOTEBOOK = "notebook/remove";
@@ -11,12 +10,6 @@ const load = (notebooks) => {
   return {
     type: LOAD_NOTEBOOKS,
     notebooks,
-  };
-};
-const getNotebook = (notebook) => {
-  return {
-    type: GET_NOTEBOOK,
-    notebook,
   };
 };
 
@@ -49,17 +42,11 @@ export const loadNotebooks = () => async (dispatch) => {
   return res;
 };
 
-export const loadNotebook = (id) => async (dispatch) => {
-  const res = await csrfFetch(`/api/notebooks/${id}`);
-  const notebook = await res.json();
-  dispatch(getNotebook(notebook));
-};
-
-export const addNotebook = (payload) => async (dispatch) => {
+export const addNotebook = (notebook) => async (dispatch) => {
   const res = await csrfFetch("/api/notebooks", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(notebook),
   });
   if (res.ok) {
     const notebook = await res.json();
