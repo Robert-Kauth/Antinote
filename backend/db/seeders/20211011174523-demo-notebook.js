@@ -1,5 +1,5 @@
 "use strict";
-
+const faker = require("faker");
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert(
@@ -7,103 +7,103 @@ module.exports = {
       [
         {
           userId: 1,
-          title: "Spring Cleaning",
+          title: faker.random.word(),
         },
         {
           userId: 1,
-          title: "Groceries",
+          title: faker.random.word(),
         },
         {
           userId: 1,
-          title: "Camping supplies",
+          title: faker.random.word(),
         },
         {
           userId: 1,
-          title: "Archery",
+          title: faker.random.word(),
         },
         {
           userId: 1,
-          title: "Garden Projects",
+          title: faker.random.word(),
         },
         {
           userId: 2,
-          title: "Spring Cleaning",
+          title: faker.random.word(),
         },
         {
           userId: 2,
-          title: "Groceries",
+          title: faker.random.word(),
         },
         {
           userId: 2,
-          title: "Camping supplies",
+          title: faker.random.word(),
         },
         {
           userId: 2,
-          title: "Archery",
+          title: faker.random.word(),
         },
         {
           userId: 2,
-          title: "Garden Projects",
+          title: faker.random.word(),
         },
         {
           userId: 3,
-          title: "Spring Cleaning",
+          title: faker.random.word(),
         },
         {
           userId: 3,
-          title: "Groceries",
+          title: faker.random.word(),
         },
         {
           userId: 3,
-          title: "Camping supplies",
+          title: faker.random.word(),
         },
         {
           userId: 3,
-          title: "Archery",
+          title: faker.random.word(),
         },
         {
           userId: 3,
-          title: "Garden Projects",
+          title: faker.random.word(),
         },
         {
           userId: 4,
-          title: "Spring Cleaning",
+          title: faker.random.word(),
         },
         {
           userId: 4,
-          title: "Groceries",
+          title: faker.random.word(),
         },
         {
           userId: 4,
-          title: "Camping supplies",
+          title: faker.random.word(),
         },
         {
           userId: 4,
-          title: "Archery",
+          title: faker.random.word(),
         },
         {
           userId: 4,
-          title: "Garden Projects",
+          title: faker.random.word(),
         },
         {
           userId: 5,
-          title: "Spring Cleaning",
+          title: faker.random.word(),
         },
         {
           userId: 5,
-          title: "Groceries",
+          title: faker.random.word(),
         },
         {
           userId: 5,
-          title: "Camping supplies",
+          title: faker.random.word(),
         },
         {
           userId: 5,
-          title: "Archery",
+          title: faker.random.word(),
         },
         {
           userId: 5,
-          title: "Garden Projects",
+          title: faker.random.word(),
         },
       ],
       {}
