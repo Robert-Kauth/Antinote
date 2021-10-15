@@ -5,9 +5,6 @@ import { deleteNote, loadNotes } from "../../store/notes";
 import styles from "./NoteBookCard.module.css";
 
 const NoteBookCard = ({ notebook }) => {
-  console.log(notebook, "##############");
-  console.log(notebook.id, "))))))))))");
-  console.log(notebook.Notes, "***********");
   const dispatch = useDispatch();
   const notes = useSelector((state) => Object.values(state.notes));
 

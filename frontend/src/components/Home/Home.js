@@ -13,7 +13,6 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(loadNotebooks());
-    dispatch(loadNotes());
   }, [dispatch]);
 
   if (!notebooks.length) return null;
@@ -21,27 +20,23 @@ const Home = () => {
     <div className={styles.notebookContainer}>
       {notebooks.map((notebook) => (
         <div key={notebook.id} className={styles.notebook}>
-          <div className={styles.link}>
-            <Link to={`/notebooks/${notebook.id}`}>
-              <p className={styles.titleText} id="title">
-                {notebook.title}
-              </p>
-            </Link>
-            <div className={styles.buttonContainer}>
-              <span className={styles.deleteContainer}>
-                <button
-                  className={styles.deleteButton}
-                  onClick={() => dispatch(deleteNotebook(notebook.id))}>
-                  Delete
-                </button>
-              </span>
-              <span className={styles.modalContainer}>
-                <TitleModal notebook={notebook.id}></TitleModal>
-              </span>
+          <div className={styles.titleWrapper}>
+            <div className={styles.linkWrapper}>
+              <Link to={`/notebooks/${notebook.id}`}>
+                <p className={styles.titleText}>{notebook.title}</p>
+              </Link>
+            </div>
+            <div className={styles.deleteWrapper}>
+              <TitleModal notebook={notebook.id}></TitleModal>
+              <button
+                className={styles.deleteButton}
+                onClick={() => dispatch(deleteNotebook(notebook.id))}>
+                Delete
+              </button>
             </div>
           </div>
           <span>
-            <NotebookCard notebook={notebook}></NotebookCard>
+            <NotebookCard notebooks={notebooks}></NotebookCard>
           </span>
         </div>
       ))}

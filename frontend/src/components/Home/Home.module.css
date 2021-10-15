@@ -6,7 +6,8 @@
 .titleText {
   display: flex;
   justify-content: center;
-  border: 2px solid blue;
+  border: 2px solid darkgreen;
+  padding: 0 10px;
 }
 .notebookContainer {
   display: flex;
@@ -15,21 +16,24 @@
 .notebook {
   border: 2px dashed purple;
 }
-.link {
+.titleWrapper {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
+  justify-content: space-between;
   align-items: center;
+}
+.deleteWrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 30%;
+  margin: 10px;
 }
 .deleteButton {
   background-color: red;
   color: black;
-  margin-right: 5px;
 }
-.buttonContainer {
+.linkWrapper {
   display: flex;
-  border: 2px solid green;
-  justify-content: space-between;
-  padding: 5px;
+  justify-content: center;
+  width: 90%;
+  margin-left: 200px;
 }
