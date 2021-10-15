@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadNotes } from "../../store/notes";
 import styles from "./NoteCard.module.css";
 
-//TODO make note content display list of notes cards in current notebook
-const NoteCard = ({ notebook }) => {
+const NoteCard = () => {
   const dispatch = useDispatch();
   const notes = useSelector((state) => Object.values(state.notes));
   console.log(notes, "*****************");
