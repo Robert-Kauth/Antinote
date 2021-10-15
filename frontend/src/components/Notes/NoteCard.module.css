@@ -1,5 +1,10 @@
+.globalWrapper {
+  margin: 50px;
+}
 .notesWrapper {
-  margin: 10px 80px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .wrapper {
   display: inline-flex;

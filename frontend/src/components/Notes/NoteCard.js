@@ -13,14 +13,16 @@ const NoteCard = () => {
 
   if (!notes.length) return null;
   return (
-    <div className={styles.notesWrapper}>
-      {notes.map((note) => (
-        <span key={note.id} className={styles.wrapper}>
-          <div className={styles.notebookTitle}>{note.Notebook.title}</div>
-          <div className={styles.noteTitle}>{note.title}</div>
-          <div className={styles.noteContent}>{note.content}</div>
-        </span>
-      ))}
+    <div className={styles.globalWrapper}>
+      <div className={styles.notesWrapper}>
+        {notes.map((note) => (
+          <span key={note.id} className={styles.wrapper}>
+            <div className={styles.notebookTitle}>{note.Notebook.title}</div>
+            <div className={styles.noteTitle}>{note.title}</div>
+            <div className={styles.noteContent}>{note.content}</div>
+          </span>
+        ))}
+      </div>
     </div>
   );
 };
