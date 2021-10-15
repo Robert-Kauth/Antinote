@@ -17,17 +17,19 @@
 }
 .link {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-}
-.delete {
-  margin: 20px 2px;
-  padding: 5px;
+  align-content: center;
+  align-items: center;
 }
 .deleteButton {
   background-color: red;
   color: black;
+  margin-right: 5px;
 }
-.editModal {
-  margin: 20px 2px;
+.buttonContainer {
+  display: flex;
+  border: 2px solid green;
+  justify-content: space-between;
   padding: 5px;
 }

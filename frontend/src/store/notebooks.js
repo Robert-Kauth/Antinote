@@ -114,7 +114,6 @@ const notebookReducer = (state = initialState, action) => {
     }
     case REMOVE_NOTEBOOK: {
       const newState = { ...state };
-      console.log(action.id);
       delete newState[action.id];
       return newState;
     }

@@ -27,18 +27,18 @@ const Home = () => {
                 {notebook.title}
               </p>
             </Link>
-            <span className={styles.delete}>
-              <button
-                className={styles.deleteButton}
-                onClick={() => dispatch(deleteNotebook(notebook.id))}>
-                Delete
-              </button>
-            </span>
-            <span className={styles.editModal}>
-              <TitleModal
-                className={styles.modalButton}
-                notebook={notebook.id}></TitleModal>
-            </span>
+            <div className={styles.buttonContainer}>
+              <span className={styles.deleteContainer}>
+                <button
+                  className={styles.deleteButton}
+                  onClick={() => dispatch(deleteNotebook(notebook.id))}>
+                  Delete
+                </button>
+              </span>
+              <span className={styles.modalContainer}>
+                <TitleModal notebook={notebook.id}></TitleModal>
+              </span>
+            </div>
           </div>
           <span>
             <NotebookCard notebook={notebook}></NotebookCard>

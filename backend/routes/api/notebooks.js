@@ -36,7 +36,6 @@ router.delete(
   "/:id",
   asyncHandler(async (req, res) => {
     const notebook = await Notebook.findByPk(req.params.id);
-    console.log(notebook, "**************");
     if (!notebook) {
       throw new Error("Cannot Find Notebook");
     }
