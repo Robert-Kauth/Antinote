@@ -26,10 +26,11 @@ const update = (noteId) => {
   };
 };
 
-const remove = (id) => {
+const remove = (id, notebookId) => {
   return {
     type: REMOVE_NOTE,
     id,
+    notebookId,
   };
 };
 /*-------------THUNK CREATORS-------------*/
@@ -67,13 +68,13 @@ export const updateNote = (payload) => async (dispatch) => {
   }
 };
 
-export const deleteNote = (id) => async (dispatch) => {
+export const deleteNote = (id, notebookId) => async (dispatch) => {
   const res = await csrfFetch(`/api/notes/${id}`, {
     method: "DELETE",
   });
   if (res.ok) {
     const id = await res.json();
-    dispatch(remove(id));
+    dispatch(remove(id, notebookId));
   }
 };
 
@@ -100,9 +101,9 @@ const notesReducer = (state = initialState, action) => {
     }
     case REMOVE_NOTE: {
       const newState = { ...state };
-      console.log(newState, "!!!!!!!!!!!!!!!!");
+      // console.log(newState, "!!!!!!!!!!!!!!!!");
       delete newState[action.id];
-      console.log(newState, "@@@@@@@@@@@@");
+      // console.log(newState, "@@@@@@@@@@@@");
       return newState;
     }
     default:

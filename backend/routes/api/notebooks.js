@@ -35,7 +35,6 @@ router.get(
 router.post(
   "/",
   asyncHandler(async (req, res) => {
-    console.log(req.body, "@@@@@@@@@@@@");
     const notebook = await Notebook.create({
       userId: req.body.userId,
       title: req.body.title,
@@ -43,7 +42,12 @@ router.post(
     if (!notebook) {
       throw new Error("Unable to Create New Notebook");
     }
-    return res.json(notebook);
+    const newNotebook = await Notebook.findByPk(notebook.id, {
+      include: {
+        model: Note,
+      },
+    });
+    return res.json(newNotebook);
   })
 );
 

@@ -6,13 +6,13 @@ import styles from "./NoteCard.module.css";
 const NoteCard = () => {
   const dispatch = useDispatch();
   const notes = useSelector((state) => Object.values(state.notes));
-  console.log(notes, "*****************");
+  // console.log(notes, "*****************");
 
   useEffect(() => {
     dispatch(loadNotes());
   }, [dispatch]);
 
-  if (!notes) return null;
+  if (!notes.length) return null;
   return (
     <div>
       {notes.map((note) => (

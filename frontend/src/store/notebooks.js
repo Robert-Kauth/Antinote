@@ -4,6 +4,7 @@ const LOAD_NOTEBOOKS = "notebook/load";
 const ADD_NOTEBOOK = "notebook/add";
 const UPDATE_NOTEBOOK = "notebook/update";
 const REMOVE_NOTEBOOK = "notebook/remove";
+const REMOVE_NOTE = "note/remove";
 /*-------------ACTIONS-------------*/
 
 const load = (notebooks) => {
@@ -102,6 +103,14 @@ const notebookReducer = (state = initialState, action) => {
     case REMOVE_NOTEBOOK: {
       const newState = { ...state };
       delete newState[action.id];
+      return newState;
+    }
+    case REMOVE_NOTE: {
+      const newState = { ...state };
+      const notebook = newState[action.notebookId];
+      const note = notebook.Notes.filter((note) => +action.id !== note.id);
+      newState[action.notebookId].Notes = note;
+      console.log(newState, "########################");
       return newState;
     }
     default:
