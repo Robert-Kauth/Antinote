@@ -1,15 +1,15 @@
 .notebookContainer {
   flex-direction: column;
-  border: 2px solid red;
   padding: 0 50px;
 }
 .titleText {
   display: flex;
+  font-size: 25px;
   justify-content: center;
-  background-color: #006600;
-  color: #e5e4e2;
-  padding: 5px 10px;
-  box-shadow: 0 0 2px 2px #ffff66;
+  background-color: #00bfff;
+  color: black;
+  padding: 5px 50px;
+  box-shadow: 0 0 2px 2px #fdfd96;
 }
 .notebookContainer {
   display: flex;
@@ -20,6 +20,7 @@
   background-color: #00a86b;
   margin: 5px;
   padding: 5px;
+  box-shadow: 0 0 2px 2px #006600;
 }
 .link {
   display: flex;

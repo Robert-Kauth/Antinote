@@ -1,5 +1,8 @@
+.notesWrapper {
+  margin: 10px 80px;
+}
 .wrapper {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   justify-items: center;
   align-items: center;
@@ -7,6 +10,11 @@
   padding: 10px;
   margin: 10px;
   border: 2px solid black;
+  background-color: #00a86b;
+  box-shadow: 0 0 2px 1px darkcyan;
+}
+.notebookTitle {
+  padding: 5px 0;
 }
 .noteTitle {
   display: flex;
@@ -25,5 +33,4 @@
 }
 .noteWrapper {
   border: 2px solid black;
-  height: fit-content;
 }

@@ -3,3 +3,7 @@
   flex-direction: column;
   padding: 5px;
 }
+.editTitle {
+  background-color: #00ffff;
+  color: black;
+}
