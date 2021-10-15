@@ -7,11 +7,18 @@ import styles from "./NoteCard.module.css";
 const NoteCard = ({ notebook }) => {
   const dispatch = useDispatch();
   const notes = useSelector((state) => Object.values(state.notes));
-  console.log(notes);
+  console.log(notes, "*****************");
+
+  useEffect(() => {
+    dispatch(loadNotes());
+  }, [dispatch]);
+
+  if (!notes) return null;
   return (
     <div>
       {notes.map((note) => (
         <span key={note.id} className={styles.wrapper}>
+          <div>{note.Notebook.title}</div>
           <div className={styles.noteTitle}>{note.title}</div>
           <div className={styles.noteContent}>{note.content}</div>
         </span>

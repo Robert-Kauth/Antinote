@@ -8,10 +8,12 @@ export const ProfileLinks = () => {
   //TODO fix notebook link
   return (
     <div>
-      <NavLink activeClassName={styles.activeNav} to="/notes">
+      <NavLink to="/notes" activeClassName={styles.activeNav}>
         Notes
       </NavLink>
-      <NavLink to="/newNotebook">Create Notebook</NavLink>
+      <NavLink to="/newNotebook" activeClassName={styles.activeNav}>
+        Create Notebook
+      </NavLink>
     </div>
   );
 };
