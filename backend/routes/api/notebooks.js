@@ -49,10 +49,7 @@ router.patch(
   "/:id",
   asyncHandler(async (req, res) => {
     const notebook = await Notebook.findByPk(req.params.id);
-    console.log(notebook, "**************");
     const { title } = req.body;
-    console.log(req.body, "!!!!!!!!!!!!!!!!");
-    console.log(title);
     if (!notebook) {
       throw new Error("Cannot Find Notebook");
     }

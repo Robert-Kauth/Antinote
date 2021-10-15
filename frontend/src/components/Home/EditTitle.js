@@ -5,7 +5,7 @@ import { loadNotebooks, updateNotebook } from "../../store/notebooks";
 
 const EditTitle = ({ id }) => {
   const dispatch = useDispatch();
-  const [title, setTitle] = useState();
+  const [title, setTitle] = useState("");
 
   const notebook = useSelector((state) => state.notebooks[id]);
 
@@ -21,7 +21,7 @@ const EditTitle = ({ id }) => {
     dispatch(updateNotebook(newTitle, notebook.id));
   };
   return (
-    <div className={styles.editModalWrapper}>
+    <form className={styles.editModalWrapper} onSubmit={handleEdit}>
       <label htmlFor="title">Please Create a new Title for your Notebook</label>
       <input
         className={styles.input}
@@ -29,10 +29,8 @@ const EditTitle = ({ id }) => {
         onChange={(e) => setTitle(e.target.value)}
         type="text"
       />
-      <button type="submit" onClick={handleEdit}>
-        Submit
-      </button>
-    </div>
+      <button type="submit">Submit</button>
+    </form>
   );
 };
 export default EditTitle;
