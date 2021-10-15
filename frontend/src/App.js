@@ -24,7 +24,7 @@ function App() {
       <Switch>
         <Route exact path="/">
           {!sessionUser && <SignupFormModal />}
-          <Home></Home>
+          {sessionUser && <Home />}
         </Route>
         <Route path="/notebooks/:id">
           <NoteBooks> </NoteBooks>
