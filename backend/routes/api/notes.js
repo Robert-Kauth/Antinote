@@ -37,9 +37,8 @@ router.delete(
   "/:id",
   asyncHandler(async (req, res) => {
     const note = await Note.findByPk(req.params.id);
-    console.log(note, "**********");
     if (!note) {
-      throw new Error("Cannot Fine Note");
+      throw new Error("Cannot Find Note");
     }
     await note.destroy();
     return res.json(req.params.id);

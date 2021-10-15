@@ -6,18 +6,19 @@ import styles from "./Notebook.module.css";
 import NotesbookCard from "./NotebookCard";
 import Editor from "../Editor";
 import { loadNotebooks, updateNotebook } from "../../store/notebooks";
-import { updateNote } from "../../store/notes";
+import { updateNote, loadNotes } from "../../store/notes";
 
 const NoteBooks = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const notebook = useSelector((state) => state.notebooks[id]);
-  console.log(notebook);
+  const notes = useSelector((state) => state.notes);
   const [text, setText] = useState();
   const [title, setTitle] = useState();
 
   useEffect(() => {
     dispatch(loadNotebooks());
+    dispatch(loadNotes());
   }, [dispatch]);
 
   if (!notebook) return null;
@@ -34,13 +35,8 @@ const NoteBooks = () => {
   //Todo dispatch action to edit current note
   const handleEdit = (e) => {
     e.preventDefault();
-    const newTitle = {
-      title: setTitle(e.target.value),
-    };
-    dispatch(updateNotebook(newTitle, notebook.id));
   };
 
-  //TODO make create, edit, delete in dropdown menu dynamic
   return (
     <div className={styles.notebooksContainer}>
       <header className={styles.headerWrapper}>

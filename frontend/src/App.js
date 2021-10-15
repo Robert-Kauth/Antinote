@@ -7,7 +7,6 @@ import SignupFormModal from "./components/SignupFormModal";
 import { Switch, Route } from "react-router";
 import NoteBooks from "./components/Notebooks";
 import Notes from "./components/Notes";
-import Create from "./components/Notebooks/Create";
 
 function App() {
   const dispatch = useDispatch();

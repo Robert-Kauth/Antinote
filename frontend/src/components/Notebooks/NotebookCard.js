@@ -1,17 +1,24 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { loadNotebooks } from "../../store/notebooks";
 import { deleteNote, loadNotes } from "../../store/notes";
 import styles from "./NoteBookCard.module.css";
 
 const NoteBookCard = ({ notebook }) => {
-  console.log(notebook, "@@@@@@@@@@@@@@@@@@");
   const dispatch = useDispatch();
+  const notes = useSelector((state) => state.notes);
+  const notebooks = useSelector((state) => state.notebooks);
 
+  useEffect(() => {
+    dispatch(loadNotebooks());
+    dispatch(loadNotes());
+  }, [dispatch]);
   //Todo dispatch action to edit current note
   const handleEdit = (e) => {
     e.preventDefault();
   };
+  if (!notebook) return null;
 
   return (
     <div>

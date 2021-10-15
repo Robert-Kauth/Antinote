@@ -10,6 +10,7 @@ import TitleModal from "./TitleModal";
 const Home = () => {
   const dispatch = useDispatch();
   const notebooks = useSelector((state) => Object.values(state.notebooks));
+  const notes = useSelector((state) => state.notes);
 
   useEffect(() => {
     dispatch(loadNotebooks());
