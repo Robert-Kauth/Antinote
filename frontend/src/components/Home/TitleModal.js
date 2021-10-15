@@ -10,7 +10,7 @@ const TitleModal = ({ notebook }) => {
       <button onClick={() => setShowModal(true)}>Edit Title</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditTitle id={notebook} />
+          <EditTitle id={notebook} setShowModal={setShowModal} />
         </Modal>
       )}
     </>

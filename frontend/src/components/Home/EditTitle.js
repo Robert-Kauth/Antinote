@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./EditTitle.module.css";
 import { loadNotebooks, updateNotebook } from "../../store/notebooks";
 
-const EditTitle = ({ id }) => {
+const EditTitle = ({ id, setShowModal }) => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
 
@@ -19,6 +19,7 @@ const EditTitle = ({ id }) => {
       title,
     };
     dispatch(updateNotebook(newTitle, notebook.id));
+    setShowModal(false);
   };
   return (
     <form className={styles.editModalWrapper} onSubmit={handleEdit}>
