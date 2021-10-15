@@ -101,9 +101,7 @@ const notesReducer = (state = initialState, action) => {
     }
     case REMOVE_NOTE: {
       const newState = { ...state };
-      // console.log(newState, "!!!!!!!!!!!!!!!!");
       delete newState[action.id];
-      // console.log(newState, "@@@@@@@@@@@@");
       return newState;
     }
     default:

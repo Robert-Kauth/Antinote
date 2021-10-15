@@ -110,7 +110,6 @@ const notebookReducer = (state = initialState, action) => {
       const notebook = newState[action.notebookId];
       const note = notebook.Notes.filter((note) => +action.id !== note.id);
       newState[action.notebookId].Notes = note;
-      console.log(newState, "########################");
       return newState;
     }
     default:
