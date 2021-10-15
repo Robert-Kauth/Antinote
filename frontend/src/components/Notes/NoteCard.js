@@ -8,11 +8,6 @@ const NoteCard = ({ notebook }) => {
   const dispatch = useDispatch();
   const notes = useSelector((state) => Object.values(state.notes));
   console.log(notes);
-
-  //! loadNotes 1
-  // useEffect(() => {
-  //   dispatch(loadNotes());
-  // }, [dispatch]);
   return (
     <div>
       {notes.map((note) => (

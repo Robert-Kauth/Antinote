@@ -5,7 +5,7 @@ const { check } = require("express-validator");
 const { handleValidatoinErros } = require("../../utils/validation");
 const { requireAuth } = require("../../utils/auth");
 
-const { Note } = require("../../db/models");
+const { Note, User, Notebook } = require("../../db/models");
 
 const router = express.Router();
 
@@ -24,6 +24,9 @@ router.get(
     const notes = await Note.findAll({
       where: {
         userId,
+      },
+      include: {
+        model: Notebook,
       },
     });
     return res.json(notes);
