@@ -7,7 +7,8 @@ import styles from "./NoteBookCard.module.css";
 
 const NoteBookCard = ({ notebook }) => {
   const dispatch = useDispatch();
-  const notes = useSelector((state) => state.notes);
+  console.log(notebook, "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+  const notes = useSelector((state) => Object.values(state.notes));
   const notebooks = useSelector((state) => state.notebooks);
 
   useEffect(() => {
@@ -18,11 +19,11 @@ const NoteBookCard = ({ notebook }) => {
   const handleEdit = (e) => {
     e.preventDefault();
   };
-  if (!notebook) return null;
+  if (!notebook || !notes.length) return null;
 
   return (
     <div>
-      {notebook.Notes.map((note) => (
+      {notes.map((note) => (
         <span key={note.id} className={styles.wrapper}>
           <div className={styles.noteTitle}>{note.title}</div>
           <div className={styles.noteContent}>{note.content}</div>
