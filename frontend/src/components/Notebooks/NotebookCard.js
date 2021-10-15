@@ -7,9 +7,7 @@ import styles from "./NoteBookCard.module.css";
 
 const NoteBookCard = ({ notebook }) => {
   const dispatch = useDispatch();
-  // console.log(notebook, "####################");
   const notes = useSelector((state) => Object.values(state.notes));
-  // console.log(notes, "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
   const notebooks = useSelector((state) => state.notebooks);
 
   useEffect(() => {

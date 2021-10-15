@@ -66,7 +66,11 @@ router.delete(
 router.patch(
   "/:id",
   asyncHandler(async (req, res) => {
-    const notebook = await Notebook.findByPk(req.params.id);
+    const notebook = await Notebook.findByPk(req.params.id, {
+      include: {
+        model: Note,
+      },
+    });
     const { title } = req.body;
     if (!notebook) {
       throw new Error("Cannot Find Notebook");
