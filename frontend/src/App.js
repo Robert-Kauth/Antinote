@@ -7,6 +7,7 @@ import SignupFormModal from "./components/SignupFormModal";
 import { Switch, Route } from "react-router";
 import NoteBooks from "./components/Notebooks";
 import Notes from "./components/Notes";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ function App() {
           <h1>Page not found</h1>
         </Route>
       </Switch>
+      <Footer />
     </div>
   );
 }
