@@ -5,17 +5,8 @@ import { deleteNote, loadNotes } from "../../store/notes";
 import styles from "./NoteBookCard.module.css";
 
 const NoteBookCard = ({ notebook }) => {
-  console.log(notebook, "##############");
-  console.log(notebook.id, "))))))))))");
-  console.log(notebook.Notes, "***********");
+  console.log(notebook, "@@@@@@@@@@@@@@@@@@");
   const dispatch = useDispatch();
-  const notes = useSelector((state) => Object.values(state.notes));
-
-  const notebookNotes = notes.filter((note) => note.notebookId === note.id);
-
-  useEffect(() => {
-    dispatch(loadNotes());
-  }, [dispatch]);
 
   //Todo dispatch action to edit current note
   const handleEdit = (e) => {
@@ -24,7 +15,7 @@ const NoteBookCard = ({ notebook }) => {
 
   return (
     <div>
-      {notebookNotes.map((note) => (
+      {notebook.Notes.map((note) => (
         <span key={note.id} className={styles.wrapper}>
           <div className={styles.noteTitle}>{note.title}</div>
           <div className={styles.noteContent}>{note.content}</div>
