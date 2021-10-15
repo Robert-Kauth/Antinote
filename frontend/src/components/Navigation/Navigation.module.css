@@ -62,3 +62,12 @@ a {
   display: inline-flex;
   align-content: center;
 }
+.create {
+  margin-right: 5px;
+  background-color: #00a86b;
+}
+
+.profileLinksWrapper {
+  display: flex;
+  margin-right: 5px;
+}

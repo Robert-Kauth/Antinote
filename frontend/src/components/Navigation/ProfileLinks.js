@@ -6,11 +6,11 @@ import styles from "./Navigation.module.css";
 export const ProfileLinks = () => {
   //TODO fix notebook link
   return (
-    <div>
+    <div className={styles.profileLinksWrapper}>
       <NavLink to="/notes" activeClassName={styles.activeNav}>
         Notes
       </NavLink>
-      <CreateModal />
+      <CreateModal className={styles.create} />
     </div>
   );
 };
