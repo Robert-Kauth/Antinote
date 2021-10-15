@@ -8,7 +8,6 @@ const Notes = () => {
   return (
     <>
       <h1>Hello from notes</h1>
-      <NotebookCard className={styles.noteCard} />
     </>
   );
 };

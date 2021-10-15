@@ -7,8 +7,7 @@ import SignupFormModal from "./components/SignupFormModal";
 import { Switch, Route } from "react-router";
 import NoteBooks from "./components/Notebooks";
 import Notes from "./components/Notes";
-import { loadNotebooks } from "./store/notebooks";
-import { loadNotes } from "./store/notes";
+import Create from "./components/Notebooks/CreateNotebook";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +31,9 @@ function App() {
         </Route>
         <Route path="/notes">
           <Notes></Notes>
+        </Route>
+        <Route path="/newNotebook">
+          <Create></Create>
         </Route>
         <Route>
           <h1>Page not found</h1>
