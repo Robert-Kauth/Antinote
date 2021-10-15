@@ -26,11 +26,15 @@ const NoteBookCard = ({ notebook }) => {
         <span key={note.id} className={styles.wrapper}>
           <div className={styles.noteTitle}>{note.title}</div>
           <div className={styles.noteContent}>{note.content}</div>
-          <span>
-            <button onClick={() => dispatch(deleteNote(note.id, notebook.id))}>
+          <span className={styles.buttonWrapper}>
+            <button
+              className={styles.deleteNote}
+              onClick={() => dispatch(deleteNote(note.id, notebook.id))}>
               Delete Note
             </button>
-            <button onClick={handleEdit}>Edit Note</button>
+            <button className={styles.edit} onClick={handleEdit}>
+              Edit Note
+            </button>
           </span>
         </span>
       ))}

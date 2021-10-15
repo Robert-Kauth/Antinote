@@ -7,6 +7,7 @@
   padding: 10px;
   margin: 10px;
   border: 2px solid black;
+  background-color: #00cccc;
 }
 .noteTitle {
   display: flex;
@@ -22,4 +23,19 @@
   background-color: lightseagreen;
   width: 25vw;
   margin: 0;
+}
+
+.deleteNote {
+  background-color: #ce2029;
+  margin-right: 2px;
+  color: aliceblue;
+}
+.edit {
+  margin-left: 2px;
+  background-color: #4b0082;
+  color: aliceblue;
+}
+.buttonWrapper {
+  padding: 2px 5px;
+  margin-top: 10px;
 }

@@ -29,8 +29,8 @@
   align-items: center;
 }
 .deleteButton {
-  background-color: red;
-  color: black;
+  background-color: #ce2029;
+  color: aliceblue;
   margin-right: 5px;
 }
 .buttonContainer {
