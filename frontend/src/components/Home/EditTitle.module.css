@@ -7,3 +7,28 @@
   background-color: #00ffff;
   color: black;
 }
+
+.form {
+  background-color: lightseagreen;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.field {
+  color: darkblue;
+  border-color: darkblue;
+}
+.buttonContainer {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+  justify-content: center;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: center;
+}
+::placeholder {
+  text-align: center;
+}

@@ -22,15 +22,23 @@ const EditTitle = ({ id, setShowModal }) => {
     setShowModal(false);
   };
   return (
-    <form className={styles.editModalWrapper} onSubmit={handleEdit}>
-      <label htmlFor="title">Please Create a new Title for your Notebook</label>
-      <input
-        className={styles.input}
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        type="text"
-      />
-      <button type="submit">Submit</button>
+    <form className={styles.form} onSubmit={handleEdit}>
+      <fieldset className={styles.field}>
+        <legend className={styles.field}>
+          Please Create a new Title for your Notebook
+        </legend>
+        <div className={styles.inputContainer}>
+          <input
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            type="text"
+            placeholder="NoteBook Name"
+          />
+        </div>
+        <div className={styles.buttonContainer}>
+          <button type="submit">Submit</button>
+        </div>
+      </fieldset>
     </form>
   );
 };
