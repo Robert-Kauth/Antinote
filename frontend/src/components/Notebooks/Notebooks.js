@@ -45,9 +45,7 @@ const NoteBooks = () => {
     <div className={styles.notebooksContainer}>
       <header className={styles.headerWrapper}>
         <div className={styles.titleWrapper}>
-          <p id="title" value={title}>
-            {notebook.title}
-          </p>
+          <p id="title">{notebook.title}</p>
           <TitleModal notebook={id} />
         </div>
       </header>

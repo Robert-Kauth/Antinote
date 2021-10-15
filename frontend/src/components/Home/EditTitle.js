@@ -8,7 +8,6 @@ const EditTitle = ({ id }) => {
   const [title, setTitle] = useState();
 
   const notebook = useSelector((state) => state.notebooks[id]);
-  console.log(notebook, "************");
 
   useEffect(() => {
     dispatch(loadNotebooks());
@@ -23,21 +22,16 @@ const EditTitle = ({ id }) => {
   };
   return (
     <div className={styles.editModalWrapper}>
-      <div>
-        <label htmlFor="title">
-          Please Create a new Title for your Notebook
-        </label>
-      </div>
-      <div>
-        <input
-          className={styles.input}
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          type="text"
-          name="title"
-        />
-      </div>
-      <button onClick={handleEdit}>Submit</button>
+      <label htmlFor="title">Please Create a new Title for your Notebook</label>
+      <input
+        className={styles.input}
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        type="text"
+      />
+      <button type="submit" onClick={handleEdit}>
+        Submit
+      </button>
     </div>
   );
 };
