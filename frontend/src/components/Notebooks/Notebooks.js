@@ -5,8 +5,8 @@ import TitleModal from "../Home/TitleModal";
 import styles from "./Notebook.module.css";
 import NotesbookCard from "./NotebookCard";
 import Editor from "../Editor";
-import { loadNotebooks, updateNotebook } from "../../store/notebooks";
-import { updateNote, loadNotes } from "../../store/notes";
+import { loadNotebooks } from "../../store/notebooks";
+import { loadNotes } from "../../store/notes";
 
 const NoteBooks = () => {
   const dispatch = useDispatch();
@@ -23,17 +23,7 @@ const NoteBooks = () => {
 
   if (!notebook) return null;
 
-  const handleSave = (e) => {
-    e.preventDefault();
-    setText();
-  };
-
   const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
-  //Todo dispatch action to edit current note
-  const handleEdit = (e) => {
     e.preventDefault();
   };
 
@@ -47,7 +37,7 @@ const NoteBooks = () => {
       </header>
       <div className={styles.wrapper}>
         <NotesbookCard notebook={notebook} />
-        <main className={styles.textAreaContainer}>
+        <form className={styles.textAreaContainer} onSubmit={handleSubmit}>
           <div>
             <textarea
               name="note"
@@ -57,11 +47,10 @@ const NoteBooks = () => {
               onChange={(e) => setText(e.target.value)}
               placeholder="Create your new note here"></textarea>
             <div className={styles.crudButtons}>
-              <button onClick={handleSubmit}>Save To Notebook</button>
-              <button onClick={handleEdit}>Edit Note</button>
+              <button type="submit">Save To Notebook</button>
             </div>
           </div>
-        </main>
+        </form>
       </div>
     </div>
   );
