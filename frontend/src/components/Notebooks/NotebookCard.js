@@ -11,7 +11,7 @@ const NoteBookCard = ({ notebook }) => {
   if (!notebook) return null;
 
   return (
-    <div>
+    <div className={styles.cardWrapper}>
       {notebook.Notes?.map((note) => (
         <span key={note.id} className={styles.wrapper}>
           <div className={styles.noteTitle}>{note.title}</div>

@@ -1,3 +1,8 @@
+.cardWrapper {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .wrapper {
   display: inline-flex;
   flex-direction: column;
