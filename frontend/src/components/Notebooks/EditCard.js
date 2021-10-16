@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { updateNote } from "../../store/notes";
 import styles from "./EditCard.module.css";
 
 const EditCard = ({ id, userId, notebookId, title, content, setShowModal }) => {
@@ -16,6 +17,8 @@ const EditCard = ({ id, userId, notebookId, title, content, setShowModal }) => {
       title,
       newContent,
     };
+    dispatch(updateNote(newNote));
+    setShowModal(false);
   };
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
