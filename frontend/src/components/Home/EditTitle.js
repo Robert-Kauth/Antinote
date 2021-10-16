@@ -5,9 +5,10 @@ import { loadNotebooks, updateNotebook } from "../../store/notebooks";
 
 const EditTitle = ({ id, setShowModal }) => {
   const dispatch = useDispatch();
-  const [title, setTitle] = useState("");
-
   const notebook = useSelector((state) => state.notebooks[id]);
+
+  const [title, setTitle] = useState("");
+  const [placeholder] = useState(notebook.title);
 
   useEffect(() => {
     dispatch(loadNotebooks());
@@ -32,7 +33,8 @@ const EditTitle = ({ id, setShowModal }) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             type="text"
-            placeholder="NoteBook Name"
+            placeholder={placeholder}
+            onFocus={(e) => (e.target.placeholder = "")}
           />
         </div>
         <div className={styles.buttonContainer}>

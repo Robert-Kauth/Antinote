@@ -11,10 +11,6 @@
 .title {
   text-align: center;
 }
-::placeholder {
-  color: black;
-  font-weight: bold;
-}
 .editTitle {
   width: fit-content;
 }

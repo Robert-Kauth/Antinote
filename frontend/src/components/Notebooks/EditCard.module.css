@@ -1,0 +1,16 @@
+.form {
+  background-color: lightseagreen;
+  border-radius: 5px;
+  padding: 10px;
+}
+.field {
+  color: darkblue;
+  border: 2px solid darkblue;
+  padding: 5px;
+}
+
+.buttonContainer {
+  display: flex;
+  margin-top: 5px;
+  justify-content: center;
+}

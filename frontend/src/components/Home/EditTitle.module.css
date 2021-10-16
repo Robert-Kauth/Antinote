@@ -16,7 +16,8 @@
 
 .field {
   color: darkblue;
-  border-color: darkblue;
+  border: 2px solid darkblue;
+  padding: 5px;
 }
 .buttonContainer {
   display: flex;
@@ -28,7 +29,4 @@
 .inputContainer {
   display: flex;
   justify-content: center;
-}
-::placeholder {
-  text-align: center;
 }

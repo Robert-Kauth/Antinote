@@ -1,25 +1,22 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import EditCardModal from "./EditCardModal";
 import { loadNotebooks } from "../../store/notebooks";
 import { deleteNote, loadNotes } from "../../store/notes";
 import styles from "./NoteBookCard.module.css";
 
 const NoteBookCard = ({ notebook }) => {
   const dispatch = useDispatch();
-  const notes = useSelector((state) => Object.values(state.notes));
-  const notebooks = useSelector((state) => state.notebooks);
+  // const notes = useSelector((state) => Object.values(state.notes));
+  const userId = useSelector((state) => state.session.user.id);
 
-  useEffect(() => {
-    dispatch(loadNotebooks());
-    dispatch(loadNotes());
-  }, [dispatch]);
+  //! may note be needed anymore
+  // useEffect(() => {
+  //   dispatch(loadNotebooks());
+  //   dispatch(loadNotes());
+  // }, [dispatch]);
 
-  //Todo dispatch action to edit current note
-  const handleEdit = (e) => {
-    e.preventDefault();
-  };
-  if (!notebook || !notes.length) return null;
+  if (!notebook) return null;
 
   return (
     <div>
@@ -33,9 +30,15 @@ const NoteBookCard = ({ notebook }) => {
               onClick={() => dispatch(deleteNote(note.id, notebook.id))}>
               Delete Note
             </button>
-            <button className={styles.edit} onClick={handleEdit}>
-              Edit Note
-            </button>
+            <span>
+              <EditCardModal
+                id={note.id}
+                userId={userId}
+                notebookId={notebook.id}
+                title={note.title}
+                content={note.content}
+              />
+            </span>
           </span>
         </span>
       ))}
