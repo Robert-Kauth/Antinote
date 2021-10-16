@@ -33,6 +33,23 @@ router.get(
   })
 );
 
+router.patch(
+  "/:id",
+  asyncHandler(async (req, res, next) => {
+    const note = await Note.findByPk(req.params.id, {
+      include: {
+        model: Notebook,
+      },
+    });
+    const { newContent } = req.body;
+    if (!note) {
+      throw new Error("Cannot find Note");
+    }
+    await note.update({ content: newContent });
+    return res.json(note);
+  })
+);
+
 router.delete(
   "/:id",
   asyncHandler(async (req, res) => {

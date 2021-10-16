@@ -1,21 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import EditCardModal from "./EditCardModal";
-import { loadNotebooks } from "../../store/notebooks";
-import { deleteNote, loadNotes } from "../../store/notes";
+import { deleteNote } from "../../store/notes";
 import styles from "./NoteBookCard.module.css";
+import { restoreUser } from "../../store/session";
 
 const NoteBookCard = ({ notebook }) => {
   const dispatch = useDispatch();
-  // const notes = useSelector((state) => Object.values(state.notes));
-  const userId = useSelector((state) => state.session.user.id);
-
-  //! may note be needed anymore
-  // useEffect(() => {
-  //   dispatch(loadNotebooks());
-  //   dispatch(loadNotes());
-  // }, [dispatch]);
-
+  const userId = useSelector((state) => state.session.user?.id);
   if (!notebook) return null;
 
   return (
@@ -32,6 +24,7 @@ const NoteBookCard = ({ notebook }) => {
             </button>
             <span>
               <EditCardModal
+                notebook={notebook}
                 id={note.id}
                 userId={userId}
                 notebookId={notebook.id}

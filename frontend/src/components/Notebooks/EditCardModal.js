@@ -3,8 +3,14 @@ import { Modal } from "../../context/Modal";
 import EditCard from "./EditCard";
 import styles from "./EditCard.module.css";
 
-const EditCardModal = ({ id, userId, notebookId, title, content }) => {
-  // console.log(id, "************");
+const EditCardModal = ({
+  id,
+  userId,
+  notebookId,
+  title,
+  content,
+  notebook,
+}) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -20,6 +26,7 @@ const EditCardModal = ({ id, userId, notebookId, title, content }) => {
             notebookId={notebookId}
             title={title}
             content={content}
+            notebook={notebook}
             setShowModal={setShowModal}
           />
         </Modal>

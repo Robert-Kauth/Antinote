@@ -19,10 +19,11 @@ const add = (note) => {
   };
 };
 
-const update = (noteId) => {
+const update = (note, notebook) => {
   return {
     type: UPDATE_NOTE,
-    noteId,
+    note,
+    notebook,
   };
 };
 
@@ -55,16 +56,15 @@ export const addNote = (payload) => async (dispatch) => {
   }
 };
 
-export const updateNote = (payload) => async (dispatch) => {
-  const res = await csrfFetch(`/api/notes/${payload.id}`, {
-    method: "PUT",
+export const updateNote = (payload, id, notebook) => async (dispatch) => {
+  const res = await csrfFetch(`/api/notes/${id}`, {
+    method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
   });
   if (res.ok) {
     const note = await res.json();
-    dispatch(update(note));
-    return note;
+    dispatch(update(note, notebook));
   }
 };
 
@@ -94,10 +94,13 @@ const notesReducer = (state = initialState, action) => {
     }
     case ADD_NOTE:
     case UPDATE_NOTE: {
-      return {
-        ...state,
-        [action.notes.id]: action.notes,
-      };
+      const newState = { ...state };
+      const note = action.notebook.Notes.findIndex(
+        (note) => note.id === +action.note.id
+      );
+      action.notebook.Notes[note] = action.note;
+      newState[action.note.id] = note;
+      return { ...newState, ...action.notebook };
     }
     case REMOVE_NOTE: {
       const newState = { ...state };

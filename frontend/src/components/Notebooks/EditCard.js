@@ -3,7 +3,15 @@ import { useDispatch } from "react-redux";
 import { updateNote } from "../../store/notes";
 import styles from "./EditCard.module.css";
 
-const EditCard = ({ id, userId, notebookId, title, content, setShowModal }) => {
+const EditCard = ({
+  id,
+  userId,
+  notebookId,
+  title,
+  content,
+  notebook,
+  setShowModal,
+}) => {
   const dispatch = useDispatch();
   const [newContent, setNewContent] = useState();
   const [placeholder] = useState(content);
@@ -17,7 +25,7 @@ const EditCard = ({ id, userId, notebookId, title, content, setShowModal }) => {
       title,
       newContent,
     };
-    dispatch(updateNote(newNote));
+    dispatch(updateNote(newNote, id, notebook));
     setShowModal(false);
   };
   return (
