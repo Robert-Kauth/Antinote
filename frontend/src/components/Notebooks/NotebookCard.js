@@ -14,6 +14,7 @@ const NoteBookCard = ({ notebook }) => {
     dispatch(loadNotebooks());
     dispatch(loadNotes());
   }, [dispatch]);
+
   //Todo dispatch action to edit current note
   const handleEdit = (e) => {
     e.preventDefault();
