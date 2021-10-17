@@ -6,10 +6,23 @@ import { addNotebook } from "../../store/notebooks";
 const Create = ({ setShowModal }) => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState();
+  const [validationErrors, setValidationErrors] = useState([]);
   const userId = useSelector((state) => state.session.user.id);
+
+  const validate = () => {
+    const validationErrors = [];
+    if (!title) validationErrors.push("Please provide a notebook title.");
+    else if (title.length > 255) {
+      validationErrors.push("Title must not be greater then 255 characters");
+    }
+    return validationErrors;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const errors = validate();
+    if (errors.length > 0) return setValidationErrors(errors);
+
     const notebook = {
       userId,
       title,
@@ -19,6 +32,16 @@ const Create = ({ setShowModal }) => {
   };
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
+      {validationErrors.length > 0 && (
+        <div className={styles.errors}>
+          The following errors occured:
+          <ul>
+            {validationErrors.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+        </div>
+      )}
       <fieldset>
         <legend>Name of New Notebook</legend>
         <div className={styles.input}>
