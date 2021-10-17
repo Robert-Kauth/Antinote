@@ -52,7 +52,6 @@ export const addNote = (payload) => async (dispatch) => {
   if (res.ok) {
     const note = await res.json();
     dispatch(add(note));
-    return note;
   }
 };
 
@@ -92,7 +91,12 @@ const notesReducer = (state = initialState, action) => {
         ...userNotes,
       };
     }
-    case ADD_NOTE:
+    case ADD_NOTE: {
+      return {
+        ...state,
+        [action.note.id]: action.note,
+      };
+    }
     case UPDATE_NOTE: {
       const newState = { ...state };
       const note = action.notebook.Notes.findIndex(

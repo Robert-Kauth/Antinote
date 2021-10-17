@@ -32,3 +32,13 @@
 .selectLabel {
   margin-right: 5px;
 }
+.newTitleContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 5px;
+}
+
+.newTitle {
+  margin: 5px;
+}

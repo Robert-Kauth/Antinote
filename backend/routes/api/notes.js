@@ -5,7 +5,7 @@ const { check } = require("express-validator");
 const { handleValidatoinErros } = require("../../utils/validation");
 const { requireAuth } = require("../../utils/auth");
 
-const { Note, User, Notebook } = require("../../db/models");
+const { Note, Notebook } = require("../../db/models");
 
 const router = express.Router();
 
@@ -47,6 +47,31 @@ router.patch(
     }
     await note.update({ content: newContent });
     return res.json(note);
+  })
+);
+
+router.post(
+  "/",
+  asyncHandler(async (req, res, next) => {
+    const { userId, notebookId, title, content } = req.body;
+    console.log(notebookId, "*********notebookId");
+    const note = await Note.create({
+      userId,
+      notebookId,
+      title,
+      content,
+    });
+    console.log(note, "#####NEW NOTE#########");
+    if (!note) {
+      throw new Error("Unable to create new note.");
+    }
+    const newNote = await Note.findByPk(note.id, {
+      include: {
+        model: Notebook,
+      },
+    });
+    console.log(newNote, "!!!!!!!!!NEW NOTE!!!!!!!!!");
+    return res.json(newNote);
   })
 );
 
