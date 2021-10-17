@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import EditCardModal from "./EditCardModal";
 import { deleteNote } from "../../store/notes";
 import styles from "./NoteBookCard.module.css";
-import { restoreUser } from "../../store/session";
 
 const NoteBookCard = ({ notebook }) => {
   const dispatch = useDispatch();

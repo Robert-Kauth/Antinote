@@ -14,7 +14,7 @@
 .editTitle {
   width: fit-content;
 }
-.wrapper {
+.cardWrapper {
   display: flex;
   justify-content: center;
   align-items: flex-start;

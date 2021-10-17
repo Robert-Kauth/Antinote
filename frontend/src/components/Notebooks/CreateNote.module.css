@@ -1,0 +1,34 @@
+.form {
+  background-color: lightseagreen;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.field {
+  color: darkblue;
+  border: 2px solid darkblue;
+  padding: 5px;
+}
+.submit {
+  display: flex;
+  gap: 5px;
+  margin: 10px;
+  justify-content: flex-start;
+}
+.editTitle {
+  background-color: #00ffff;
+  color: black;
+  margin-right: 5px;
+}
+.selectContainer {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+.textAreaContainer {
+  display: flex;
+  justify-content: center;
+}
+.selectLabel {
+  margin-right: 5px;
+}

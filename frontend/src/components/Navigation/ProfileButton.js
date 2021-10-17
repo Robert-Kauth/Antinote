@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
 
 import Icon from "@mdi/react";
 import { mdiAccountArrowDown, mdiAccount } from "@mdi/js";
@@ -11,7 +10,6 @@ const Button = styled.button`
 `;
 
 const ProfileButton = ({ user }) => {
-  const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
 
   const openMenu = () => {
