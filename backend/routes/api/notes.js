@@ -54,14 +54,12 @@ router.post(
   "/",
   asyncHandler(async (req, res, next) => {
     const { userId, notebookId, title, content } = req.body;
-    console.log(notebookId, "*********notebookId");
     const note = await Note.create({
       userId,
       notebookId,
       title,
       content,
     });
-    console.log(note, "#####NEW NOTE#########");
     if (!note) {
       throw new Error("Unable to create new note.");
     }
@@ -70,7 +68,6 @@ router.post(
         model: Notebook,
       },
     });
-    console.log(newNote, "!!!!!!!!!NEW NOTE!!!!!!!!!");
     return res.json(newNote);
   })
 );
