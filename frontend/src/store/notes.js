@@ -94,12 +94,12 @@ const notesReducer = (state = initialState, action) => {
     }
     case ADD_NOTE: {
       const newState = { ...state };
-      console.log(action.notebook);
-      console.log(action.note);
+      console.log(action.note, "action.note");
+      console.log(action.notebook, "action.notebook before push");
       const note = action.note;
-      action.notebook.Notes.push(note);
       console.log(note, "@@@@@@@@@@@@@@@@@@");
-      action.notebook.Notes[note] = action.note;
+      action.notebook.Notes.push(action.note);
+      console.log(action.notebook, "action.notebook after push");
       newState[action.note.id] = note;
       return { ...newState, ...action.notebook };
     }

@@ -5,6 +5,7 @@ import TitleModal from "../Home/TitleModal";
 import styles from "./Notebook.module.css";
 import NotesbookCard from "./NotebookCard";
 import { loadNotebooks } from "../../store/notebooks";
+import { loadNotes } from "../../store/notes";
 
 const NoteBooks = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const NoteBooks = () => {
 
   useEffect(() => {
     dispatch(loadNotebooks());
+    dispatch(loadNotes());
   }, [dispatch]);
 
   if (!notebook) return null;
