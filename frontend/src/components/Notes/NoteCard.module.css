@@ -1,10 +1,11 @@
-.globalWrapper {
-  margin: 0;
-  background-color: #00a86b;
+.noteCardWrapper {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
   border: 2px solid lightseagreen;
+  padding: 5px;
   box-shadow: 0 0 2px 2px #006600;
   margin: 0 25px;
-  min-height: 90vh;
 }
 .notesWrapper {
   display: inline-flex;
@@ -42,6 +43,9 @@
   width: 25vw;
   margin: 0;
 }
-.noteWrapper {
-  border: 2px solid black;
-}
+/* .noteWrapper {
+  border: 2px solid lightseagreen;
+  margin: 5px 0;
+  padding: 5px;
+  box-shadow: 0 0 2px 2px #006600;
+} */
