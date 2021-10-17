@@ -7,6 +7,7 @@ import styles from "./ProfileButton.module.css";
 
 const Button = styled.button`
   border-radius: 5px;
+  max-height: fit-content;
 `;
 
 const ProfileButton = ({ user, notebooks }) => {

@@ -18,9 +18,6 @@ const Home = ({ user }) => {
   if (!notebooks.length) return null;
   return (
     <div className={styles.notebookContainer}>
-      <div>
-        <ProfileButton user={user} notebooks={notebooks}></ProfileButton>
-      </div>
       {notebooks &&
         notebooks.map((notebook) => (
           <div key={notebook.id} className={styles.notebook}>

@@ -8,6 +8,7 @@ import { mdiHomeCircle } from "@mdi/js";
 import styled from "styled-components";
 import ProfileLinks from "./ProfileLinks";
 import LogoutButton from "./Logout";
+import ProfileButton from "./ProfileButton";
 
 const StyledIcon = styled(Icon)`
   color: darkcyan;
@@ -17,11 +18,20 @@ const StyledIcon = styled(Icon)`
 
 const Navigation = ({ isLoaded }) => {
   const sessionUser = useSelector((state) => state.session.user);
+  const notebooks = useSelector((state) => Object.values(state.notebooks));
 
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
       <>
+        <div className={styles.homeProfile}>
+          <NavLink activeClassName={styles.activeNav} exact to="/">
+            <StyledIcon path={mdiHomeCircle} size={1.5} />
+          </NavLink>
+          <ProfileButton
+            user={sessionUser}
+            notebooks={notebooks}></ProfileButton>
+        </div>
         <ProfileLinks />
         <LogoutButton />
       </>
@@ -37,9 +47,11 @@ const Navigation = ({ isLoaded }) => {
   }
   return (
     <nav className={styles.container}>
-      <NavLink activeClassName={styles.activeNav} exact to="/">
-        <StyledIcon path={mdiHomeCircle} size={1.25} />
-      </NavLink>
+      {!isLoaded && (
+        <NavLink activeClassName={styles.activeNav} exact to="/">
+          <StyledIcon path={mdiHomeCircle} size={1} />
+        </NavLink>
+      )}
       {isLoaded && sessionLinks}
     </nav>
   );

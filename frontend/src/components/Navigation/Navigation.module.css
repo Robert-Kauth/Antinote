@@ -17,6 +17,7 @@ a {
   color: black;
   text-decoration: none;
   font-size: 16px;
+  height: fit-content;
 }
 .navLink :visited {
   text-decoration: none;
@@ -36,7 +37,10 @@ a {
   display: inline-flex;
 }
 .notesButton {
-  background-color: #00ffff;
+  background-color: #00a86b;
   color: black;
   margin: 0 5px;
+}
+.homeProfile {
+  display: inline-flex;
 }

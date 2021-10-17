@@ -1,4 +1,5 @@
 .profileButton {
+  height: fit-content;
 }
 .profileDropdown {
   position: absolute;
