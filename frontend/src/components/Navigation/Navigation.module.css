@@ -8,13 +8,14 @@
   border-style: inset;
   box-shadow: 0 0 2px 1px darkcyan;
   padding: 5px;
+  min-width: 90vw;
 }
 .navLink,
 a {
   display: inline-flex;
   align-items: center;
   border-radius: 2px;
-  margin: 0 5px;
+  margin: 0;
   color: black;
   text-decoration: none;
   padding: 5px;
@@ -36,7 +37,9 @@ a {
 .profile {
   padding: 5px;
 }
-
+.searchbar {
+  margin: 0 30px;
+}
 .profileButton {
 }
 .profileDropdown {
@@ -55,9 +58,6 @@ a {
   display: flex;
   justify-content: center;
 }
-.linksContainer {
-  display: inline-flex;
-}
 .profileHome {
   display: inline-flex;
   align-content: center;
@@ -66,8 +66,7 @@ a {
   margin-right: 5px;
   background-color: #00a86b;
 }
-
 .profileLinksWrapper {
   display: flex;
-  margin-right: 5px;
+  justify-content: space-between;
 }

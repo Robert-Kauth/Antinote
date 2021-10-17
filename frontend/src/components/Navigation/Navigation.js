@@ -8,18 +8,12 @@ import Icon from "@mdi/react";
 import { mdiHomeCircle } from "@mdi/js";
 import styled from "styled-components";
 import ProfileLinks from "./ProfileLinks";
-import SearchBar from "./Search";
 import LogoutButton from "./Logout";
 
 const StyledIcon = styled(Icon)`
   color: darkcyan;
   position: relative;
   left: 0;
-`;
-const StyledSearch = styled(SearchBar)`
-  position: relative;
-  left: 50vw;
-  right: 50vw;
 `;
 
 const Navigation = ({ isLoaded }) => {
@@ -29,20 +23,8 @@ const Navigation = ({ isLoaded }) => {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <span>
-          <NavLink to="/notes" activeClassName={styles.activeNav}>
-            Notes
-          </NavLink>
-        </span>
-        <span>
-          <ProfileLinks />
-        </span>
-        <span>
-          <StyledSearch />
-        </span>
-        <span className={styles.linksContainer}>
-          <LogoutButton />
-        </span>
+        <ProfileLinks />
+        <LogoutButton />
       </>
     );
   } else {
@@ -57,7 +39,7 @@ const Navigation = ({ isLoaded }) => {
   return (
     <nav className={styles.container}>
       <NavLink activeClassName={styles.activeNav} exact to="/">
-        <StyledIcon path={mdiHomeCircle} size={1} />
+        <StyledIcon path={mdiHomeCircle} size={1.25} />
       </NavLink>
       {isLoaded && sessionLinks}
     </nav>
