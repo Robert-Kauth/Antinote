@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Create.module.css";
 import { addNotebook } from "../../store/notebooks";
+import { mdiAlertCircle } from "@mdi/js";
+import Icon from "@mdi/react";
 
 const Create = ({ setShowModal }) => {
   const dispatch = useDispatch();
@@ -35,15 +37,15 @@ const Create = ({ setShowModal }) => {
       {validationErrors.length > 0 && (
         <div className={styles.errors}>
           The following errors occured:
-          <ul>
-            {validationErrors.map((error) => (
-              <li key={error}>{error}</li>
-            ))}
-          </ul>
+          {validationErrors.map((error) => (
+            <ul className={styles.ul}>
+              <li className={styles.indivError}>{error}</li>
+            </ul>
+          ))}
         </div>
       )}
-      <fieldset>
-        <legend>Name of New Notebook</legend>
+      <fieldset className={styles.field}>
+        <legend className={styles.legend}>Name of New Notebook</legend>
         <div className={styles.input}>
           <input
             type="text"
