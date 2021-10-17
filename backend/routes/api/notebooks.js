@@ -2,7 +2,7 @@ const express = require("express");
 
 const asyncHandler = require("express-async-handler");
 const { check } = require("express-validator");
-const { handleValidatoinErros } = require("../../utils/validation");
+const { handleValidationErrors } = require("../../utils/validation");
 const { requireAuth } = require("../../utils/auth");
 
 const { Notebook, Note } = require("../../db/models");
@@ -11,8 +11,37 @@ const router = express.Router();
 
 /*****************************Middleware*****************************/
 
-const validateNotebook = [];
+const validateNotebook = [
+  check("userId")
+    .exists({ checkFalsy: true })
+    .withMessage("A User ID must be provided")
+    .isInt()
+    .withMessage("User ID must be an number"),
+  check("title")
+    .exists({ checkFalsy: true })
+    .withMessage("Title must not be empty")
+    .isLength({ max: 255 })
+    .withMessage("Title can not be longer then 255 characters"),
+  handleValidationErrors,
+];
 
+const notebooksNotFoundError = (id) => {
+  const err = Error("Notebooks not found");
+  err.errors = [
+    `Notebooks for the user with an id of ${id} could not be found`,
+  ];
+  err.title = "User notebooks not found";
+  err.status = 404;
+  return err;
+};
+
+const notebookNotFoundError = (notebookId) => {
+  const err = Error("Notebook not found");
+  err.errors = [`Noteboook with an id of ${notebookId} could not be found`];
+  err.title = "Notebook not found";
+  err.status = 404;
+  return err;
+};
 /******************************Routes*******************************/
 // GET /notebooks => return all users notebooks
 router.get(
@@ -28,16 +57,22 @@ router.get(
         model: Note,
       },
     });
-    return res.json(notebooks);
+    if (notebooks) {
+      return res.json(notebooks);
+    } else {
+      next(notebooksNotFoundError(userId));
+    }
   })
 );
 
 router.post(
   "/",
+  validateNotebook,
   asyncHandler(async (req, res) => {
+    const { userId, title } = req.body;
     const notebook = await Notebook.create({
-      userId: req.body.userId,
-      title: req.body.title,
+      userId,
+      title,
     });
     if (!notebook) {
       throw new Error("Unable to Create New Notebook");
@@ -53,30 +88,33 @@ router.post(
 
 router.delete(
   "/:id",
-  asyncHandler(async (req, res) => {
+  asyncHandler(async (req, res, next) => {
     const notebook = await Notebook.findByPk(req.params.id);
-    if (!notebook) {
-      throw new Error("Cannot Find Notebook");
+    if (notebook) {
+      await notebook.destroy();
+      return res.json(req.params.id);
+    } else {
+      next(notebookNotFoundError(req.params.id));
     }
-    await notebook.destroy();
-    return res.json(req.params.id);
   })
 );
 
 router.patch(
   "/:id",
-  asyncHandler(async (req, res) => {
+  validateNotebook,
+  asyncHandler(async (req, res, next) => {
     const notebook = await Notebook.findByPk(req.params.id, {
       include: {
         model: Note,
       },
     });
     const { title } = req.body;
-    if (!notebook) {
-      throw new Error("Cannot Find Notebook");
+    if (notebook) {
+      await notebook.update({ title });
+      return res.json(notebook);
+    } else {
+      next(notebookNotFoundError(req.params.id));
     }
-    await notebook.update({ title });
-    return res.json(notebook);
   })
 );
 
