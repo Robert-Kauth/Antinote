@@ -74,6 +74,7 @@ export const addNote = (payload, notebook) => async (dispatch) => {
 };
 
 export const updateNote = (payload, id, notebook) => async (dispatch) => {
+  console.log(id, typeof id, "!!!!!!!!note.id");
   const res = await csrfFetch(`/api/notes/${id}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
@@ -128,14 +129,18 @@ const notesReducer = (state = initialState, action) => {
       return { ...newState, ...action.notebook };
     }
     case UPDATE_NOTE: {
-      const newState = { ...state };
-      const note = action.notebook.Notes.findIndex(
-        (note) => note.id === +action.note.id
-      );
-      action.notebook.Notes[note] = action.note;
-      newState[action.note.id] = note;
-      return { ...newState, ...action.notebook };
+      console.log(action.note, "%%%%%%%%%%%%UPDATE");
+      return { ...state, [action.note.id]: action.note };
     }
+    // case UPDATE_NOTE: {
+    //   const newState = { ...state };
+    //   const note = action.notebook.Notes.findIndex(
+    //     (note) => note.id === +action.note.id
+    //   );
+    //   action.notebook.Notes[note] = action.note;
+    //   newState[action.note.id] = note;
+    //   return { ...newState, ...action.notebook };
+    // }
     case REMOVE_NOTE: {
       const newState = { ...state };
       delete newState[action.id];

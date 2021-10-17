@@ -1,17 +1,20 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./Home.module.css";
-import NotebookCard from "../Notebooks/NotebookCard";
+import HomeNotebookCards from "./HomeNotebookCards";
 import { deleteNotebook, loadNotebooks } from "../../store/notebooks";
+import { loadNotes } from "../../store/notes";
 import { Link } from "react-router-dom";
 import TitleModal from "./TitleModal";
 
 const Home = ({ user }) => {
   const dispatch = useDispatch();
   const notebooks = useSelector((state) => Object.values(state.notebooks));
+  const notes = useSelector((state) => Object.values(state.notes));
 
   useEffect(() => {
     dispatch(loadNotebooks());
+    dispatch(loadNotes());
   }, [dispatch]);
 
   if (!notebooks.length) return null;
@@ -43,7 +46,7 @@ const Home = ({ user }) => {
               </div>
             </div>
             <span>
-              <NotebookCard notebook={notebook}></NotebookCard>
+              <HomeNotebookCards notebook={notebook}></HomeNotebookCards>
             </span>
           </div>
         ))}
