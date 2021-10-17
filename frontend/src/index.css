@@ -8,4 +8,8 @@
 .globalWrapper {
   position: relative;
   min-height: 100vh;
+  background-image: url(https://antinote.s3.us-west-1.amazonaws.com/Antidote.gif);
+  background-clip: padding-box;
+  background-repeat: repeat;
+  background-size: 15vh;
 }
