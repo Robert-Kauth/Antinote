@@ -15,11 +15,11 @@ const Notes = () => {
 
   if (!notes.length) return null;
   return (
-    <div>
+    <div className={styles.background}>
       {notes && (
         <div>
           <div className={styles.titleWrapper}>
-            <p className={styles.title}>All User Notes</p>
+            <p className={styles.title}>Notes</p>
           </div>
           <NoteCard notes={notes} />
         </div>

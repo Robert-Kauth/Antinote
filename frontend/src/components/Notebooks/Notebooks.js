@@ -23,9 +23,9 @@ const NoteBooks = () => {
     <div className={styles.notebooksContainer}>
       <header className={styles.headerWrapper}>
         <div className={styles.titleWrapper}>
-          <p id="title">{notebook.title}</p>
-          <TitleModal notebook={id} />
+          <p className={styles.title}>{notebook.title}</p>
         </div>
+        <TitleModal notebook={id} />
       </header>
       <div className={styles.cardWrapper}>
         <NotesbookCard notebook={notebook} />

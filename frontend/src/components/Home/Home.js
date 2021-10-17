@@ -5,7 +5,6 @@ import NotebookCard from "../Notebooks/NotebookCard";
 import { deleteNotebook, loadNotebooks } from "../../store/notebooks";
 import { Link } from "react-router-dom";
 import TitleModal from "./TitleModal";
-import ProfileButton from "../Navigation/ProfileButton";
 
 const Home = ({ user }) => {
   const dispatch = useDispatch();
@@ -18,6 +17,9 @@ const Home = ({ user }) => {
   if (!notebooks.length) return null;
   return (
     <div className={styles.notebookContainer}>
+      <div className={styles.titleWrapper}>
+        <p className={styles.title}>NoteBooks</p>
+      </div>
       {notebooks &&
         notebooks.map((notebook) => (
           <div key={notebook.id} className={styles.notebook}>

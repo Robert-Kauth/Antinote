@@ -1,8 +1,9 @@
 .globalWrapper {
-  margin: 50px;
+  margin: 0;
   background-color: #00a86b;
   border: 2px solid lightseagreen;
   box-shadow: 0 0 2px 2px #006600;
+  margin: 0 25px;
 }
 .notesWrapper {
   display: inline-flex;
