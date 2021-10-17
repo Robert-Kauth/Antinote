@@ -1,11 +1,13 @@
 .container {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: #087830;
   border: 2px solid darkcyan;
   border-style: inset;
   box-shadow: 0 0 2px 1px darkcyan;
+  padding: 5px;
 }
 .navLink,
 a {
@@ -36,13 +38,11 @@ a {
 }
 
 .profileButton {
-  position: relative;
-  margin: 0 5px;
 }
 .profileDropdown {
   position: absolute;
   margin: 0;
-  right: 1px;
+  left: 1px;
   padding: 5px;
   background-color: aliceblue;
   list-style-type: none;

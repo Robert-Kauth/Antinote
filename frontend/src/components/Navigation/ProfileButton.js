@@ -6,7 +6,7 @@ import styled from "styled-components";
 import styles from "./Navigation.module.css";
 
 const Button = styled.button`
-  border-radius: 10px;
+  border-radius: 5px;
 `;
 
 const ProfileButton = ({ user }) => {

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Icon from "@mdi/react";
-import { mdiCardSearchOutline } from "@mdi/js";
+import { mdiMagnify } from "@mdi/js";
 import styled from "styled-components";
 import styles from "./SearchBar.module.css";
 
 const Button = styled.button`
-  border-radius: 10px;
+  border-radius: 5px;
 `;
 
 const SearchBar = () => {
@@ -19,10 +19,12 @@ const SearchBar = () => {
 
   return (
     <span className={styles.searchBar}>
-      <input type="search" name="searchbar" value={search} />
-      <Button className={styles.searchButton} onClick={handleSearch}>
-        <Icon className={styles.searchIcon} path={mdiCardSearchOutline} />
-      </Button>
+      <form className={styles.searchForm}>
+        <input type="search" name="searchbar" value={search} />
+        <Button className={styles.searchButton} onClick={handleSearch}>
+          <Icon className={styles.searchIcon} path={mdiMagnify} />
+        </Button>
+      </form>
     </span>
   );
 };

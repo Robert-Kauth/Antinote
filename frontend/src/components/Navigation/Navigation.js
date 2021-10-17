@@ -13,6 +13,13 @@ import LogoutButton from "./Logout";
 
 const StyledIcon = styled(Icon)`
   color: darkcyan;
+  position: relative;
+  left: 0;
+`;
+const StyledSearch = styled(SearchBar)`
+  position: relative;
+  left: 50vw;
+  right: 50vw;
 `;
 
 const Navigation = ({ isLoaded }) => {
@@ -22,12 +29,18 @@ const Navigation = ({ isLoaded }) => {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <span className={styles.profileHome}>
-          <ProfileButton user={sessionUser} />
+        <span>
+          <NavLink to="/notes" activeClassName={styles.activeNav}>
+            Notes
+          </NavLink>
         </span>
-        <SearchBar />
-        <span className={styles.linksContainer}>
+        <span>
           <ProfileLinks />
+        </span>
+        <span>
+          <StyledSearch />
+        </span>
+        <span className={styles.linksContainer}>
           <LogoutButton />
         </span>
       </>
@@ -44,7 +57,7 @@ const Navigation = ({ isLoaded }) => {
   return (
     <nav className={styles.container}>
       <NavLink activeClassName={styles.activeNav} exact to="/">
-        <StyledIcon path={mdiHomeCircle} size={2} />
+        <StyledIcon path={mdiHomeCircle} size={1} />
       </NavLink>
       {isLoaded && sessionLinks}
     </nav>

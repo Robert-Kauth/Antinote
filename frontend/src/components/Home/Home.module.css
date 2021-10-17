@@ -1,6 +1,5 @@
 .notebookContainer {
   flex-direction: column;
-  padding: 0 50px;
   min-height: 100vh;
 }
 .titleText {
