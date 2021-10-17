@@ -6,7 +6,7 @@ import { loadNotebooks, updateNotebook } from "../../store/notebooks";
 const EditTitle = ({ id, setShowModal }) => {
   const dispatch = useDispatch();
   const notebook = useSelector((state) => state.notebooks[id]);
-
+  const userId = useSelector((state) => state.session.user.id);
   const [title, setTitle] = useState("");
   const [placeholder] = useState(notebook.title);
 
@@ -17,6 +17,7 @@ const EditTitle = ({ id, setShowModal }) => {
   const handleEdit = (e) => {
     e.preventDefault();
     const newTitle = {
+      userId,
       title,
     };
     dispatch(updateNotebook(newTitle, notebook.id));

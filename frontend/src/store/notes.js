@@ -128,19 +128,19 @@ const notesReducer = (state = initialState, action) => {
       newState[action.note.id] = note;
       return { ...newState, ...action.notebook };
     }
-    case UPDATE_NOTE: {
-      console.log(action.note, "%%%%%%%%%%%%UPDATE");
-      return { ...state, [action.note.id]: action.note };
-    }
     // case UPDATE_NOTE: {
-    //   const newState = { ...state };
-    //   const note = action.notebook.Notes.findIndex(
-    //     (note) => note.id === +action.note.id
-    //   );
-    //   action.notebook.Notes[note] = action.note;
-    //   newState[action.note.id] = note;
-    //   return { ...newState, ...action.notebook };
+    //   console.log(action.note, "%%%%%%%%%%%%UPDATE");
+    //   return { ...state, [action.note.id]: action.note };
     // }
+    case UPDATE_NOTE: {
+      const newState = { ...state };
+      const note = action.notebook.Notes.findIndex(
+        (note) => note.id === +action.note.id
+      );
+      action.notebook.Notes[note] = action.note;
+      newState[action.note.id] = note;
+      return { ...newState, ...action.notebook };
+    }
     case REMOVE_NOTE: {
       const newState = { ...state };
       delete newState[action.id];
