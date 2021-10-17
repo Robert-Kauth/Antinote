@@ -11,6 +11,7 @@
   list-style-type: none;
   border-radius: 5px;
   border: 2px solid black;
+  z-index: 1;
 }
 .profileContent {
   font-size: 16px;
