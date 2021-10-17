@@ -1,9 +1,8 @@
 .footerContainer {
-  position: relative;
-  bottom: 2;
+  position: absolute;
+  bottom: 0;
   width: 100%;
   padding: 8px;
-
   background-color: #087830;
 }
 .logoContainer,
