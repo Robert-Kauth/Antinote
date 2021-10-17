@@ -20,25 +20,27 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="globalWrapper">
-      <Navigation isLoaded={isLoaded} />
-      <Switch>
-        <Route exact path="/">
-          {!sessionUser && <SignupFormModal />}
-          {sessionUser && <Home user={sessionUser} />}
-        </Route>
-        <Route path="/notebooks/:id">
-          <NoteBooks> </NoteBooks>
-        </Route>
-        <Route path="/notes">
-          <Notes></Notes>
-        </Route>
-        <Route>
-          <h1>Page not found</h1>
-        </Route>
-      </Switch>
+    <>
+      <div className="globalWrapper">
+        <Navigation isLoaded={isLoaded} />
+        <Switch>
+          <Route exact path="/">
+            {!sessionUser && <SignupFormModal />}
+            {sessionUser && <Home user={sessionUser} />}
+          </Route>
+          <Route path="/notebooks/:id">
+            <NoteBooks> </NoteBooks>
+          </Route>
+          <Route path="/notes">
+            <Notes></Notes>
+          </Route>
+          <Route>
+            <h1>Page not found</h1>
+          </Route>
+        </Switch>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

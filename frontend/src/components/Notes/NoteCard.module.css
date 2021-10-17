@@ -4,11 +4,13 @@
   border: 2px solid lightseagreen;
   box-shadow: 0 0 2px 2px #006600;
   margin: 0 25px;
+  min-height: 90vh;
 }
 .notesWrapper {
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: center;
+  min-height: 90vh;
 }
 .wrapper {
   display: inline-flex;
