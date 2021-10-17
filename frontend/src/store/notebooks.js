@@ -1,6 +1,7 @@
 import { csrfFetch } from "./csrf";
 /*-------------Types-------------*/
 const LOAD_NOTEBOOKS = "notebook/load";
+
 const ADD_NOTEBOOK = "notebook/add";
 const UPDATE_NOTEBOOK = "notebook/update";
 const REMOVE_NOTEBOOK = "notebook/remove";

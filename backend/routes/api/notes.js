@@ -33,6 +33,24 @@ router.get(
   })
 );
 
+// GET notes in notebook
+router.get(
+  "/:id",
+  asyncHandler(async (req, res, next) => {
+    const notes = await Note.findAll({
+      where: {
+        notebookId: req.params.id,
+      },
+      include: {
+        model: Notebook,
+      },
+    });
+    if (notes) {
+      return res.json(notes);
+    }
+  })
+);
+
 router.patch(
   "/:id",
   asyncHandler(async (req, res, next) => {
