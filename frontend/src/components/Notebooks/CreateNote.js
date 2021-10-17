@@ -7,12 +7,12 @@ import styles from "./CreateNote.module.css";
 const CreateNote = ({ setShowModal }) => {
   const dispatch = useDispatch();
   const [content, setContent] = useState("");
-  const [notebookId, setNotebookId] = useState();
+  const [notebookId, setNotebookId] = useState(1);
   const [title, setTitle] = useState("");
 
   const notebooks = useSelector((state) => Object.values(state.notebooks));
-
   const userId = useSelector((state) => state.session.user.id);
+  const notebook = notebooks.find((notebook) => notebook.id === +notebookId);
 
   useEffect(() => {
     dispatch(loadNotebooks());
@@ -20,13 +20,13 @@ const CreateNote = ({ setShowModal }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newNote = {
+    const note = {
       userId,
       notebookId,
       title,
       content,
     };
-    dispatch(addNote(newNote));
+    dispatch(addNote(note, notebook));
     setShowModal(false);
   };
 

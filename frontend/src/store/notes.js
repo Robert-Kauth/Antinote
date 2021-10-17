@@ -12,10 +12,11 @@ const load = (notes) => {
   };
 };
 
-const add = (note) => {
+const add = (note, notebook) => {
   return {
     type: ADD_NOTE,
     note,
+    notebook,
   };
 };
 
@@ -43,7 +44,7 @@ export const loadNotes = () => async (dispatch) => {
   return res;
 };
 
-export const addNote = (payload) => async (dispatch) => {
+export const addNote = (payload, notebook) => async (dispatch) => {
   const res = await csrfFetch("/api/notes/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -51,7 +52,7 @@ export const addNote = (payload) => async (dispatch) => {
   });
   if (res.ok) {
     const note = await res.json();
-    dispatch(add(note));
+    dispatch(add(note, notebook));
   }
 };
 
@@ -92,10 +93,15 @@ const notesReducer = (state = initialState, action) => {
       };
     }
     case ADD_NOTE: {
-      return {
-        ...state,
-        [action.note.id]: action.note,
-      };
+      const newState = { ...state };
+      console.log(action.notebook);
+      console.log(action.note);
+      const note = action.note;
+      action.notebook.Notes.push(note);
+      console.log(note, "@@@@@@@@@@@@@@@@@@");
+      action.notebook.Notes[note] = action.note;
+      newState[action.note.id] = note;
+      return { ...newState, ...action.notebook };
     }
     case UPDATE_NOTE: {
       const newState = { ...state };
