@@ -32,7 +32,6 @@ function App() {
         <Route path="/notes">
           <Notes></Notes>
         </Route>
-        <Route path="/newNotebook"></Route>
         <Route>
           <h1>Page not found</h1>
         </Route>
