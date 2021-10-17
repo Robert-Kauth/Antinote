@@ -12,14 +12,11 @@
 }
 .navLink,
 a {
-  display: inline-flex;
-  align-items: center;
   border-radius: 2px;
   margin: 0;
   color: black;
   text-decoration: none;
-  padding: 5px;
-  font-size: 25px;
+  font-size: 16px;
 }
 .navLink :visited {
   text-decoration: none;
@@ -31,42 +28,15 @@ a {
 .loginModal {
   margin: 0 5px;
 }
-.iconContainer {
-  padding-top: 2px;
-}
-.profile {
-  padding: 5px;
-}
-.searchbar {
-  margin: 0 30px;
-}
-.profileButton {
-}
-.profileDropdown {
-  position: absolute;
-  margin: 0;
-  left: 1px;
-  padding: 5px;
-  background-color: aliceblue;
-  list-style-type: none;
-  border-radius: 5px;
-}
-.profileContent {
-  font-size: 16px;
-}
-.profileContentButton {
-  display: flex;
-  justify-content: center;
-}
-.profileHome {
-  display: inline-flex;
-  align-content: center;
-}
-.create {
-  margin-right: 5px;
-  background-color: #00a86b;
-}
 .profileLinksWrapper {
-  display: flex;
-  justify-content: space-between;
+  display: inline-flex;
+  align-items: baseline;
+}
+.notes {
+  display: inline-flex;
+}
+.notesButton {
+  background-color: #00ffff;
+  color: black;
+  margin: 0 5px;
 }

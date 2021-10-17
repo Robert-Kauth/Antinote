@@ -14,16 +14,21 @@ const StyledSearch = styled(SearchBar)`
 export const ProfileLinks = () => {
   return (
     <div className={styles.profileLinksWrapper}>
-      <div className={styles.searchbar}>
+      <span className={styles.searchbar}>
         <StyledSearch />
-      </div>
-      <span>
-        <NavLink to="/notes" activeClassName={styles.activeNav}>
-          Notes
-        </NavLink>
       </span>
-      <CreateNoteModal className={styles.create} />
-      <CreateModal className={styles.create} />
+      <div>
+        <button className={styles.notesButton}>
+          <NavLink
+            to="/notes"
+            className={styles.notes}
+            activeClassName={styles.activeNav}>
+            Notes
+          </NavLink>
+        </button>
+        <CreateNoteModal className={styles.create} />
+        <CreateModal className={styles.create} />
+      </div>
     </div>
   );
 };

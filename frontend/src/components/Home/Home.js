@@ -19,7 +19,7 @@ const Home = ({ user }) => {
   return (
     <div className={styles.notebookContainer}>
       <div>
-        <ProfileButton user={user}></ProfileButton>
+        <ProfileButton user={user} notebooks={notebooks}></ProfileButton>
       </div>
       {notebooks &&
         notebooks.map((notebook) => (
