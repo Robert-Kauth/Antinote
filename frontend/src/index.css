@@ -5,6 +5,7 @@
   font-family: "Spectral", serif;
   box-sizing: border-box;
 }
-.nav {
-  background-color: red;
+.globalWrapper {
+  position: relative;
+  min-height: 100vh;
 }

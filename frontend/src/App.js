@@ -8,6 +8,7 @@ import { Switch, Route } from "react-router";
 import NoteBooks from "./components/Notebooks";
 import Notes from "./components/Notes";
 import Footer from "./components/Footer";
+import "./index.css";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="globalWrapper">
       <Navigation isLoaded={isLoaded} />
       <Switch>
         <Route exact path="/">
