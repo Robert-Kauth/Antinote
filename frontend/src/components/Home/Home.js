@@ -17,32 +17,33 @@ const Home = () => {
   if (!notebooks.length) return null;
   return (
     <div className={styles.notebookContainer}>
-      {notebooks.map((notebook) => (
-        <div key={notebook.id} className={styles.notebook}>
-          <div className={styles.link}>
-            <Link to={`/notebooks/${notebook.id}`}>
-              <p className={styles.titleText} id="title">
-                {notebook.title}
-              </p>
-            </Link>
-            <div className={styles.buttonContainer}>
-              <span className={styles.deleteContainer}>
-                <button
-                  className={styles.deleteButton}
-                  onClick={() => dispatch(deleteNotebook(notebook.id))}>
-                  Delete
-                </button>
-              </span>
-              <span className={styles.modalContainer}>
-                <TitleModal notebook={notebook.id}></TitleModal>
-              </span>
+      {notebooks &&
+        notebooks.map((notebook) => (
+          <div key={notebook.id} className={styles.notebook}>
+            <div className={styles.link}>
+              <Link to={`/notebooks/${notebook.id}`}>
+                <p className={styles.titleText} id="title">
+                  {notebook.title}
+                </p>
+              </Link>
+              <div className={styles.buttonContainer}>
+                <span className={styles.deleteContainer}>
+                  <button
+                    className={styles.deleteButton}
+                    onClick={() => dispatch(deleteNotebook(notebook.id))}>
+                    Delete
+                  </button>
+                </span>
+                <span className={styles.modalContainer}>
+                  <TitleModal notebook={notebook.id}></TitleModal>
+                </span>
+              </div>
             </div>
+            <span>
+              <NotebookCard notebook={notebook}></NotebookCard>
+            </span>
           </div>
-          <span>
-            <NotebookCard notebook={notebook}></NotebookCard>
-          </span>
-        </div>
-      ))}
+        ))}
     </div>
   );
 };
