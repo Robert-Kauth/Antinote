@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import EditCardModal from "./EditCardModal";
-import { deleteNote, loadNotes } from "../../store/notes";
+import { deleteNote } from "../../store/notes";
 
 import styles from "./NoteBookCard.module.css";
 
