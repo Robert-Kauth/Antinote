@@ -2,7 +2,7 @@ const express = require("express");
 
 const asyncHandler = require("express-async-handler");
 const { check } = require("express-validator");
-const { handleValidatoinErros } = require("../../utils/validation");
+const { handleValidationErrors } = require("../../utils/validation");
 const { requireAuth } = require("../../utils/auth");
 
 const { Note, Notebook } = require("../../db/models");
@@ -11,7 +11,26 @@ const router = express.Router();
 
 /*****************************Middleware*****************************/
 
-const validateNote = [];
+const validateNote = [
+  check("userId")
+    .exists({ checkFalsy: true })
+    .withMessage("A User ID must be provided")
+    .isInt()
+    .withMessage("User ID must be an number"),
+  check("notebookId")
+    .exists({ checkFalsy: true })
+    .withMessage("A notebook ID must be provided"),
+  check("title")
+    .exists({ checkFalsy: true })
+    .withMessage("Title must not be empty")
+    .isLength({ max: 255 })
+    .withMessage("Title can not be longer then 255 characters"),
+  check("content")
+    .exists({ checkFalsy: true })
+    .isLength({ max: 500 })
+    .withMessage("Content of Note can not be longer then 500 characters"),
+  handleValidationErrors,
+];
 
 /******************************Routes*******************************/
 
@@ -52,6 +71,7 @@ router.patch(
 
 router.post(
   "/",
+  validateNote,
   asyncHandler(async (req, res, next) => {
     const { userId, notebookId, title, content } = req.body;
     const note = await Note.create({
@@ -60,9 +80,6 @@ router.post(
       title,
       content,
     });
-    if (!note) {
-      throw new Error("Unable to create new note.");
-    }
     const newNote = await Note.findByPk(note.id, {
       include: {
         model: Notebook,
