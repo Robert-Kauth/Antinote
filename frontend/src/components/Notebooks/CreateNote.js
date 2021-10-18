@@ -9,6 +9,7 @@ const CreateNote = ({ setShowModal }) => {
   const [content, setContent] = useState("");
   const [notebookId, setNotebookId] = useState();
   const [title, setTitle] = useState("");
+  const [validationErrors, setValidationErrors] = useState([]);
   const notebooks = useSelector((state) => Object.values(state.notebooks));
   const userId = useSelector((state) => state.session.user.id);
   const notebook = notebooks.find((notebook) => notebook.id === +notebookId);
@@ -16,6 +17,16 @@ const CreateNote = ({ setShowModal }) => {
     dispatch(loadNotebooks());
   }, [dispatch]);
 
+  const validate = () => {
+    const validationErrors = [];
+    if (!title) {
+      validationErrors.push("Please provide a title.");
+    }
+    if (!content) {
+      validationErrors.push("Please provide some content for your note");
+    }
+    return validationErrors;
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     const errors = validate();

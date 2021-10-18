@@ -5,7 +5,6 @@ import HomeNotebookCards from "./HomeNotebookCards";
 import { deleteNotebook, loadNotebooks } from "../../store/notebooks";
 import { loadNotes } from "../../store/notes";
 import TitleModal from "./TitleModal";
-import { Link } from "react-router-dom";
 
 const Home = ({ user }) => {
   const dispatch = useDispatch();
