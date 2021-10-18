@@ -17,7 +17,7 @@ const Home = ({ user }) => {
     dispatch(loadNotes());
   }, [dispatch]);
 
-  if (!notebooks.length) return null;
+  if (!notebooks.length || !notes.length) return null;
   return (
     <div className={styles.notebookContainer}>
       <div className={styles.titleWrapper}>

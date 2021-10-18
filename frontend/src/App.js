@@ -6,7 +6,6 @@ import Home from "./components/Home";
 import SignupFormModal from "./components/SignupFormModal";
 import { Switch, Route } from "react-router-dom";
 import NoteBooks from "./components/Notebooks";
-import Notes from "./components/Notes";
 import Footer from "./components/Footer";
 import "./index.css";
 
@@ -29,12 +28,6 @@ function App() {
         </Route>
         <Route path="/notebooks/:id">
           <NoteBooks> </NoteBooks>
-        </Route>
-        <Route path="/notes">
-          <Notes></Notes>
-        </Route>
-        <Route>
-          <h1>Page not found</h1>
         </Route>
       </Switch>
       <Footer />
