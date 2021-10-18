@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
 import Icon from "@mdi/react";
 import { mdiAccountArrowDown, mdiAccount } from "@mdi/js";
 import styled from "styled-components";
@@ -44,7 +43,9 @@ const ProfileButton = ({ user, notebooks }) => {
           <li className={styles.profileContent}>{user.email}</li>
           {notebooks &&
             notebooks.map((notebook) => (
-              <div key={notebook.id}>{notebook.title}</div>
+              <div key={notebook.id} className={styles.notebookTitle}>
+                <div className={styles.title}>{notebook.title}</div>
+              </div>
             ))}
         </ul>
       )}

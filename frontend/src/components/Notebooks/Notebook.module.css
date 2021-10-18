@@ -24,14 +24,8 @@
   width: fit-content;
 }
 .cardWrapper {
-  /* display: flex;
-  justify-content: center; */
-  /* align-items: flex-start;
-  gap: 10px; */
   border: 2px solid lightseagreen;
-  /* background-color: #00a86b; */
   margin: 0 25px;
-  /* padding: 5px; */
   box-shadow: 0 0 2px 2px #006600;
 }
 .menuContainer {
@@ -64,8 +58,4 @@
 }
 .notebooksContainer {
   min-height: 100vh;
-  /* background-image: url(https://antinote.s3.us-west-1.amazonaws.com/Antidote.gif);
-  background-clip: padding-box;
-  background-repeat: repeat;
-  background-size: 15vh; */
 }

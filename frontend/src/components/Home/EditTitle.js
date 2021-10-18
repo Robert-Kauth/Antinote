@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./EditTitle.module.css";
 import { loadNotebooks, updateNotebook } from "../../store/notebooks";
 
-const EditTitle = ({ id, setShowModal }) => {
+const EditTitle = ({ id, setShowModal, user }) => {
   const dispatch = useDispatch();
   const notebook = useSelector((state) => state.notebooks[id]);
-  const userId = useSelector((state) => state.session.user.id);
+  const userId = user.id;
   const [title, setTitle] = useState("");
   const [placeholder] = useState(notebook.title);
 

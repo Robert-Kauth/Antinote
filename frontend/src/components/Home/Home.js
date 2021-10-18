@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import styles from "./Home.module.css";
 import HomeNotebookCards from "./HomeNotebookCards";
 import { deleteNotebook, loadNotebooks } from "../../store/notebooks";
-import { loadNotes } from "../../store/notes";
 import TitleModal from "./TitleModal";
 import { Link } from "react-router-dom";
 
@@ -27,11 +26,9 @@ const Home = ({ user }) => {
         notebooks.map((notebook) => (
           <div key={notebook.id} className={styles.notebook}>
             <div className={styles.link}>
-              <Link to={`/notebooks/${notebook.id}`}>
-                <p className={styles.titleText} id="title">
-                  {notebook.title}
-                </p>
-              </Link>
+              <p className={styles.titleText} id="title">
+                {notebook.title}
+              </p>
               <div className={styles.buttonContainer}>
                 <span className={styles.deleteContainer}>
                   <button
@@ -41,7 +38,7 @@ const Home = ({ user }) => {
                   </button>
                 </span>
                 <span className={styles.modalContainer}>
-                  <TitleModal notebook={notebook.id}></TitleModal>
+                  <TitleModal user={user} notebook={notebook.id}></TitleModal>
                 </span>
               </div>
             </div>

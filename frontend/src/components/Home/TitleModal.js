@@ -3,7 +3,7 @@ import { Modal } from "../../context/Modal";
 import EditTitle from "./EditTitle";
 import styles from "./EditTitle.module.css";
 
-const TitleModal = ({ notebook }) => {
+const TitleModal = ({ notebook, user }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -13,7 +13,7 @@ const TitleModal = ({ notebook }) => {
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditTitle id={notebook} setShowModal={setShowModal} />
+          <EditTitle id={notebook} user={user} setShowModal={setShowModal} />
         </Modal>
       )}
     </>
