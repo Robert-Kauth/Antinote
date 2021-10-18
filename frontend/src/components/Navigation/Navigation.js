@@ -38,7 +38,7 @@ const Navigation = ({ isLoaded }) => {
     );
   } else {
     sessionLinks = (
-      <div>
+      <div className={styles.login}>
         <span className={styles.loginModal}>
           <LoginFormModal />
         </span>
