@@ -65,6 +65,20 @@ router.get(
   })
 );
 
+router.get(
+  "/:id",
+  asyncHandler(async (req, res) => {
+    const notebook = await Notebook.findByPk(req.params.id, {
+      include: {
+        model: Note,
+      },
+    });
+    if (notebook) {
+      return res.json(notebook);
+    }
+  })
+);
+
 router.post(
   "/",
   validateNotebook,

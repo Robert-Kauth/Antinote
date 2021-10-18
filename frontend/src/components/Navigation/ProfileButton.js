@@ -16,6 +16,7 @@ const ProfileButton = ({ user, notebooks }) => {
     if (showMenu) return;
     setShowMenu(true);
   };
+  useEffect(() => {});
   useEffect(() => {
     if (!showMenu) return;
 
@@ -42,9 +43,9 @@ const ProfileButton = ({ user, notebooks }) => {
           <li className={styles.profileContent}>{user.email}</li>
           {notebooks &&
             notebooks.map((notebook) => (
-              <div key={notebook.id} className={styles.notebookTitle}>
-                <div className={styles.title}>{notebook.title}</div>
-              </div>
+              <Link to={`/notebooks/${notebook.id}`} key={notebook.id}>
+                <div>{notebook.title}</div>
+              </Link>
             ))}
         </ul>
       )}

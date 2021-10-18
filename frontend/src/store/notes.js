@@ -1,6 +1,7 @@
 import { csrfFetch } from "./csrf";
 /*-------------Types-------------*/
 const LOAD_NOTES = "note/load";
+const GET_NOTES = "notes/get";
 const ADD_NOTE = "note/add";
 const UPDATE_NOTE = "note/update";
 const REMOVE_NOTE = "note/remove";
@@ -8,6 +9,13 @@ const REMOVE_NOTE = "note/remove";
 const load = (notes) => {
   return {
     type: LOAD_NOTES,
+    notes,
+  };
+};
+
+const get = (notes) => {
+  return {
+    type: GET_NOTES,
     notes,
   };
 };
@@ -42,6 +50,15 @@ export const loadNotes = () => async (dispatch) => {
   const notes = await res.json();
   dispatch(load(notes));
   return res;
+};
+
+export const getNotes = (id) => async (dispatch) => {
+  const res = await csrfFetch(`/api/notes/${id}`);
+  if (res.ok) {
+    const notes = await res.json();
+    dispatch(get(notes));
+    return notes;
+  }
 };
 
 export const addNote = (payload, notebook) => async (dispatch) => {
@@ -91,6 +108,13 @@ const notesReducer = (state = initialState, action) => {
         ...state,
         ...userNotes,
       };
+    }
+    case GET_NOTES: {
+      const notes = {};
+      action.notes.forEach((note) => {
+        notes[note.id] = note;
+      });
+      return { ...state, ...notes };
     }
     case ADD_NOTE: {
       const newState = { ...state };
