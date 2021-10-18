@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import EditCardModal from "./EditCardModal";
-import { deleteNote, getNotes } from "../../store/notes";
+import { deleteNote, getNotes, loadNotes } from "../../store/notes";
 import styles from "./NoteBookCard.module.css";
 import { loadNotebook } from "../../store/notebooks";
 

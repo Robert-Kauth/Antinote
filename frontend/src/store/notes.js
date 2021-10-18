@@ -115,6 +115,7 @@ const notesReducer = (state = initialState, action) => {
       action.notes.forEach((note) => {
         notes[note.id] = note;
       });
+      console.log(notes, "%%%%%%%%%%%%%");
       return { ...state, ...notes };
     }
     case ADD_NOTE: {

@@ -28,7 +28,7 @@ function Root() {
   return (
     <Provider store={store}>
       <ModalProvider>
-        <BrowserRouter>
+        <BrowserRouter forceRefresh={true}>
           <App />
         </BrowserRouter>
       </ModalProvider>
