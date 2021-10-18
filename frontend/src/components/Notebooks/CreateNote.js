@@ -9,10 +9,21 @@ const CreateNote = ({ setShowModal }) => {
   const [content, setContent] = useState("");
   const [notebookId, setNotebookId] = useState(1);
   const [title, setTitle] = useState("");
+  const [validationErrors, setValidationErrors] = useState([]);
 
   const notebooks = useSelector((state) => Object.values(state.notebooks));
   const userId = useSelector((state) => state.session.user.id);
   const notebook = notebooks.find((notebook) => notebook.id === +notebookId);
+  const validate = () => {
+    const validationErrors = [];
+    if (!title) {
+      validationErrors.push("Please provide a title.");
+    }
+    if (!content) {
+      validationErrors.push("Please provide some content for your note");
+    }
+    return validationErrors;
+  };
 
   useEffect(() => {
     dispatch(loadNotebooks());
@@ -20,6 +31,8 @@ const CreateNote = ({ setShowModal }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const errors = validate();
+    if (errors.length > 0) return setValidationErrors(errors);
     const note = {
       userId,
       notebookId,
@@ -34,6 +47,16 @@ const CreateNote = ({ setShowModal }) => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
+      {validationErrors.length > 0 && (
+        <div className={styles.errors}>
+          The following errors occured:
+          {validationErrors.map((error) => (
+            <ul className={styles.ul}>
+              <li className={styles.indivError}>{error}</li>
+            </ul>
+          ))}
+        </div>
+      )}
       <fieldset className={styles.field}>
         <legend className={styles.field}>Create a new note</legend>
         <div className={styles.newTitleContainer}>
