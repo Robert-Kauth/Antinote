@@ -16,11 +16,6 @@
 }
 .notebookContainer {
   flex-direction: column;
-  height: 100%;
-  /* background-image: url(https://antinote.s3.us-west-1.amazonaws.com/Antidote.gif);
-  background-clip: padding-box;
-  background-repeat: repeat;
-  background-size: 15vh; */
 }
 .titleText {
   display: flex;
@@ -32,14 +27,12 @@
   box-shadow: 0 0 2px 2px #fdfd96;
 }
 .notebookContainer {
-  position: relative;
   display: flex;
   justify-content: center;
   margin: 0 25px;
 }
 .notebook {
   border: 2px solid lightseagreen;
-  /* background-color: #00a86b; */
   margin: 5px 0;
   padding: 5px;
   box-shadow: 0 0 2px 2px #006600;

@@ -4,9 +4,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import SignupFormModal from "./components/SignupFormModal";
-import { Switch, Route } from "react-router";
-import NoteBooks from "./components/Notebooks";
-import Notes from "./components/Notes";
+import { Route } from "react-router";
 import Footer from "./components/Footer";
 import "./index.css";
 
@@ -20,23 +18,14 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="globalWrapper">
-      <Navigation isLoaded={isLoaded} />
-      <Switch>
+    <div>
+      <div className="globalWrapper">
+        <Navigation isLoaded={isLoaded} />
         <Route exact path="/">
           {!sessionUser && <SignupFormModal />}
           {sessionUser && <Home user={sessionUser} />}
         </Route>
-        <Route path="/notebooks/:id">
-          <NoteBooks> </NoteBooks>
-        </Route>
-        <Route path="/notes">
-          <Notes></Notes>
-        </Route>
-        <Route>
-          <h1>Page not found</h1>
-        </Route>
-      </Switch>
+      </div>
       <Footer />
     </div>
   );
