@@ -49,5 +49,5 @@
     "babel-plugin-styled-components": "^1.13.2",
     "redux-logger": "^3.0.6"
   },
-  "proxy": "http://localhost:5000/"
+  "proxy": "http://localhost:5000"
 }
