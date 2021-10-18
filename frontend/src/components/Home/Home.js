@@ -27,11 +27,9 @@ const Home = ({ user }) => {
         notebooks.map((notebook) => (
           <div key={notebook.id} className={styles.notebook}>
             <div className={styles.link}>
-              <Link to={`/notebooks/${notebook.id}`}>
-                <p className={styles.titleText} id="title">
-                  {notebook.title}
-                </p>
-              </Link>
+              <p className={styles.titleText} id="title">
+                {notebook.title}
+              </p>
               <div className={styles.buttonContainer}>
                 <span className={styles.deleteContainer}>
                   <button
