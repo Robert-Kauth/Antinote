@@ -20,6 +20,9 @@
   display: flex;
   padding: 2px 5px;
 }
+.title {
+  text-align: center;
+}
 .notebookTitle {
   margin: 5px 0;
   border: 2px solid darkgreen;

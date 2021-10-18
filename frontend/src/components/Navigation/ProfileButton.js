@@ -44,7 +44,9 @@ const ProfileButton = ({ user, notebooks }) => {
           {notebooks &&
             notebooks.map((notebook) => (
               <div className={styles.notebookTitle}>
-                <div key={notebook.id}>{notebook.title}</div>
+                <div key={notebook.id} className={styles.title}>
+                  {notebook.title}
+                </div>
               </div>
             ))}
         </ul>
