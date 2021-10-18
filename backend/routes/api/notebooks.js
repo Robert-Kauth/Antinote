@@ -108,9 +108,9 @@ router.patch(
         model: Note,
       },
     });
-    const { title } = req.body;
+    const { userId, title } = req.body;
     if (notebook) {
-      await notebook.update({ title });
+      await notebook.update({ userId, title });
       return res.json(notebook);
     } else {
       next(notebookNotFoundError(req.params.id));

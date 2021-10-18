@@ -35,7 +35,7 @@ const Home = ({ user }) => {
                   </button>
                 </span>
                 <span className={styles.modalContainer}>
-                  <TitleModal notebook={notebook.id}></TitleModal>
+                  <TitleModal user={user} notebook={notebook.id}></TitleModal>
                 </span>
               </div>
             </div>

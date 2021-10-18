@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./NoteCard.module.css";
 
 const NoteCard = ({ notes }) => {
+  if (!notes.length) return null;
   return (
     <div className={styles.noteCardWrapper}>
       {notes &&

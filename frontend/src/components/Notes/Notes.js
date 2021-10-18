@@ -14,6 +14,7 @@ const Notes = () => {
   }, [dispatch]);
 
   if (!notes.length) return null;
+
   return (
     <div className={styles.background}>
       {notes && (
