@@ -7,13 +7,11 @@ import styles from "./CreateNote.module.css";
 const CreateNote = ({ setShowModal }) => {
   const dispatch = useDispatch();
   const [content, setContent] = useState("");
-  const [notebookId, setNotebookId] = useState(1);
+  const [notebookId, setNotebookId] = useState();
   const [title, setTitle] = useState("");
-
   const notebooks = useSelector((state) => Object.values(state.notebooks));
   const userId = useSelector((state) => state.session.user.id);
   const notebook = notebooks.find((notebook) => notebook.id === +notebookId);
-
   useEffect(() => {
     dispatch(loadNotebooks());
   }, [dispatch]);
@@ -26,8 +24,10 @@ const CreateNote = ({ setShowModal }) => {
       title,
       content,
     };
-    dispatch(addNote(note, notebook));
-    setShowModal(false);
+    if (notebookId) {
+      dispatch(addNote(note, notebook));
+      setShowModal(false);
+    }
   };
 
   if (!notebooks.length) return null;
@@ -65,6 +65,7 @@ const CreateNote = ({ setShowModal }) => {
             name="notebooks"
             value={notebookId}
             onChange={(e) => setNotebookId(e.target.value)}>
+            <option value="">Please Select a Notebook</option>
             {notebooks.map((notebook) => (
               <option key={notebook.id} value={notebook.id}>
                 {notebook.title}
