@@ -7,14 +7,14 @@
   top: 50px;
   left: 1px;
   padding: 5px;
-  background-color: aliceblue;
+  background-color: #01cccc;
   list-style-type: none;
   border-radius: 5px;
   border: 2px solid black;
   z-index: 1;
 }
 .profileContent {
-  font-size: 16px;
+  font-size: 18px;
 }
 .dropdownWrapper {
   display: flex;
@@ -23,4 +23,26 @@
 .activeNav {
   background-color: #00ff7f;
   text-decoration: none;
+}
+.user {
+  border: 2px solid green;
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-style: inset;
+  box-shadow: 0 0 2px 1px darkcyan;
+}
+.linksWrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+.link {
+  text-align: left;
+  padding: 5px;
+  margin: 2px;
+  list-style: inside disc;
+  border-style: inset;
+  box-shadow: 0 0 2px 1px indigo;
+  border: 2px solid indigo;
 }

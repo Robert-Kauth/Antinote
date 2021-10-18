@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Icon from "@mdi/react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { mdiAccountArrowDown, mdiAccount } from "@mdi/js";
 import styled from "styled-components";
 import styles from "./ProfileButton.module.css";
@@ -8,6 +8,7 @@ import styles from "./ProfileButton.module.css";
 const Button = styled.button`
   border-radius: 5px;
   max-height: fit-content;
+  background-color: #00ffff;
 `;
 
 const ProfileButton = ({ user, notebooks }) => {
@@ -40,13 +41,21 @@ const ProfileButton = ({ user, notebooks }) => {
       </div>
       {showMenu && (
         <ul className={styles.profileDropdown}>
-          <li className={styles.profileContent}>{user.username}</li>
-          <li className={styles.profileContent}>{user.email}</li>
+          <div className={styles.user}>
+            <li className={styles.profileContent}>{user.username}</li>
+            <li className={styles.profileContent}>{user.email}</li>
+          </div>
           {notebooks &&
             notebooks.map((notebook) => (
-              <Link to={`/notebooks/${notebook.id}`} key={notebook.id}>
-                <div>{notebook.title}</div>
-              </Link>
+              <div className={styles.linksWrapper}>
+                <NavLink
+                  className={styles.nav}
+                  activeClassName={styles.activeNav}
+                  to={`/notebooks/${notebook.id}`}
+                  key={notebook.id}>
+                  <li className={styles.link}>{notebook.title}</li>
+                </NavLink>
+              </div>
             ))}
         </ul>
       )}
