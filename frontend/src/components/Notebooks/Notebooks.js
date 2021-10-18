@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import TitleModal from "../Home/TitleModal";
 import styles from "./Notebook.module.css";
-import NotesbookCard from "./NotebookCard";
-import { loadNotebooks } from "../../store/notebooks";
-import { getNotes, loadNotes } from "../../store/notes";
+import NotebookCard from "./NotebookCard";
+import { loadNotebook } from "../../store/notebooks";
+import { getNotes } from "../../store/notes";
 
 const NoteBooks = () => {
   const dispatch = useDispatch();
@@ -14,8 +14,7 @@ const NoteBooks = () => {
   const notebook = useSelector((state) => state.notebooks[id]);
 
   useEffect(() => {
-    dispatch(loadNotebooks());
-    dispatch(loadNotes());
+    dispatch(loadNotebook(+id));
     dispatch(getNotes(+id));
   }, [dispatch, id]);
 
@@ -30,7 +29,7 @@ const NoteBooks = () => {
         <TitleModal notebook={id} />
       </header>
       <div className={styles.cardWrapper}>
-        <NotesbookCard notebook={notebook} notes={notes} />
+        <NotebookCard notebook={notebook} notes={notes} id={id} />
       </div>
     </div>
   );

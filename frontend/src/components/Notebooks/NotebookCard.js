@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import EditCardModal from "./EditCardModal";
-import { deleteNote } from "../../store/notes";
+import { deleteNote, getNotes } from "../../store/notes";
 import styles from "./NoteBookCard.module.css";
+import { loadNotebook } from "../../store/notebooks";
 
-const NoteBookCard = ({ notebook, notes }) => {
-  console.log(notes, "@@@@@@@@@@@@@@@@@@@");
+const NoteBookCard = ({ notebook, notes, id }) => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.session.user?.id);
 
+  useEffect(() => {
+    dispatch(loadNotebook(+id));
+    dispatch(getNotes(+id));
+  }, [dispatch, id]);
+
+  if (!notes.length) return null;
   return (
     <div className={styles.cardWrapper}>
       {notes &&

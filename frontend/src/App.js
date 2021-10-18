@@ -4,7 +4,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import SignupFormModal from "./components/SignupFormModal";
-import { Switch, Route } from "react-router";
+import { Switch, Route } from "react-router-dom";
 import NoteBooks from "./components/Notebooks";
 import Notes from "./components/Notes";
 import Footer from "./components/Footer";
