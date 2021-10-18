@@ -1,0 +1,26 @@
+.profileButton {
+  height: fit-content;
+}
+.profileDropdown {
+  position: absolute;
+  margin: 0;
+  top: 50px;
+  left: 1px;
+  padding: 5px;
+  background-color: aliceblue;
+  list-style-type: none;
+  border-radius: 5px;
+  border: 2px solid black;
+  z-index: 1;
+}
+.profileContent {
+  font-size: 16px;
+}
+.dropdownWrapper {
+  display: flex;
+  padding: 2px 5px;
+}
+.activeNav {
+  background-color: #00ff7f;
+  text-decoration: none;
+}

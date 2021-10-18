@@ -14,11 +14,11 @@ const LogoutButton = () => {
     history.push("/");
   };
   return (
-    <span className={styles.profileContentButton}>
+    <div className={styles.logoutContainer}>
       <button className={styles.logout} onClick={logout}>
         Log Out
       </button>
-    </span>
+    </div>
   );
 };
 export default LogoutButton;

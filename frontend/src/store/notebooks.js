@@ -5,6 +5,7 @@ const GET_NOTEBOOK = "notebook/get";
 const ADD_NOTEBOOK = "notebook/add";
 const UPDATE_NOTEBOOK = "notebook/update";
 const REMOVE_NOTEBOOK = "notebook/remove";
+const REMOVE_NOTE = "note/remove";
 /*-------------ACTIONS-------------*/
 
 const load = (notebooks) => {
@@ -19,7 +20,6 @@ const getNotebook = (notebook) => {
     notebook,
   };
 };
-
 const add = (notebook) => {
   return {
     type: ADD_NOTEBOOK,
@@ -55,11 +55,11 @@ export const loadNotebook = (id) => async (dispatch) => {
   dispatch(getNotebook(notebook));
 };
 
-export const addNotebook = (payload) => async (dispatch) => {
+export const addNotebook = (notebook) => async (dispatch) => {
   const res = await csrfFetch("/api/notebooks", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(notebook),
   });
   if (res.ok) {
     const notebook = await res.json();
@@ -105,6 +105,9 @@ const notebookReducer = (state = initialState, action) => {
         ...userNotebooks,
       };
     }
+    case GET_NOTEBOOK: {
+      return { ...state, [action.notebook.id]: action.notebook };
+    }
     case ADD_NOTEBOOK:
     case UPDATE_NOTEBOOK: {
       return {
@@ -115,6 +118,13 @@ const notebookReducer = (state = initialState, action) => {
     case REMOVE_NOTEBOOK: {
       const newState = { ...state };
       delete newState[action.id];
+      return newState;
+    }
+    case REMOVE_NOTE: {
+      const newState = { ...state };
+      const notebook = newState[action.notebookId];
+      const note = notebook.Notes.filter((note) => +action.id !== note.id);
+      newState[action.notebookId].Notes = note;
       return newState;
     }
     default:

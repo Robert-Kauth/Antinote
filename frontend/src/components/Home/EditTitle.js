@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./EditTitle.module.css";
 import { loadNotebooks, updateNotebook } from "../../store/notebooks";
 
-const EditTitle = ({ id }) => {
+const EditTitle = ({ id, setShowModal }) => {
   const dispatch = useDispatch();
-  const [title, setTitle] = useState("");
-
   const notebook = useSelector((state) => state.notebooks[id]);
+  const userId = useSelector((state) => state.session.user.id);
+  const [title, setTitle] = useState("");
+  const [placeholder] = useState(notebook.title);
 
   useEffect(() => {
     dispatch(loadNotebooks());
@@ -16,20 +17,31 @@ const EditTitle = ({ id }) => {
   const handleEdit = (e) => {
     e.preventDefault();
     const newTitle = {
+      userId,
       title,
     };
     dispatch(updateNotebook(newTitle, notebook.id));
+    setShowModal(false);
   };
   return (
-    <form className={styles.editModalWrapper} onSubmit={handleEdit}>
-      <label htmlFor="title">Please Create a new Title for your Notebook</label>
-      <input
-        className={styles.input}
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        type="text"
-      />
-      <button type="submit">Submit</button>
+    <form className={styles.form} onSubmit={handleEdit}>
+      <fieldset className={styles.field}>
+        <legend className={styles.field}>
+          Please Create a new Title for your Notebook
+        </legend>
+        <div className={styles.inputContainer}>
+          <input
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            type="text"
+            placeholder={placeholder}
+            onFocus={(e) => (e.target.placeholder = "")}
+          />
+        </div>
+        <div className={styles.buttonContainer}>
+          <button type="submit">Submit</button>
+        </div>
+      </fieldset>
     </form>
   );
 };

@@ -1,35 +1,39 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import styles from "./Navigation.module.css";
 import Icon from "@mdi/react";
 import { mdiHomeCircle } from "@mdi/js";
 import styled from "styled-components";
 import ProfileLinks from "./ProfileLinks";
-import SearchBar from "./Search";
 import LogoutButton from "./Logout";
+import ProfileButton from "./ProfileButton";
 
 const StyledIcon = styled(Icon)`
   color: darkcyan;
+  position: relative;
+  left: 0;
 `;
 
 const Navigation = ({ isLoaded }) => {
   const sessionUser = useSelector((state) => state.session.user);
+  const notebooks = useSelector((state) => Object.values(state.notebooks));
 
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
       <>
-        <span className={styles.profileHome}>
-          <ProfileButton user={sessionUser} />
-        </span>
-        <SearchBar />
-        <span className={styles.linksContainer}>
-          <ProfileLinks />
-          <LogoutButton />
-        </span>
+        <div className={styles.homeProfile}>
+          <NavLink activeClassName={styles.activeNav} exact to="/">
+            <StyledIcon path={mdiHomeCircle} size={1.5} />
+          </NavLink>
+          <ProfileButton
+            user={sessionUser}
+            notebooks={notebooks}></ProfileButton>
+        </div>
+        <ProfileLinks />
+        <LogoutButton />
       </>
     );
   } else {
@@ -43,9 +47,11 @@ const Navigation = ({ isLoaded }) => {
   }
   return (
     <nav className={styles.container}>
-      <NavLink activeClassName={styles.activeNav} exact to="/">
-        <StyledIcon path={mdiHomeCircle} size={2} />
-      </NavLink>
+      {!isLoaded && (
+        <NavLink activeClassName={styles.activeNav} exact to="/">
+          <StyledIcon path={mdiHomeCircle} size={1} />
+        </NavLink>
+      )}
       {isLoaded && sessionLinks}
     </nav>
   );

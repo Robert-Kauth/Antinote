@@ -3,7 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import style from "./LoginForm.module.css";
+import styles from "./LoginForm.module.css";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -31,10 +31,10 @@ const LoginForm = () => {
     history.push("/");
   };
   return (
-    <form className={style.form} onSubmit={handleSubmit}>
-      <fieldset className={style.field}>
-        <legend className={style.field}>Please Login In</legend>
-        <div className={style.errorsContainer}>
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <fieldset className={styles.field}>
+        <legend className={styles.field}>Please Login In</legend>
+        <div className={styles.errorsContainer}>
           <ul>
             {errors.map((error, i) => (
               <li key={i}>{error}</li>
@@ -43,7 +43,7 @@ const LoginForm = () => {
         </div>
         <div>
           <label>Username or Email</label>
-          <div className={style.inputContainer}>
+          <div className={styles.inputContainer}>
             <input
               type="text"
               value={credential}
@@ -54,7 +54,7 @@ const LoginForm = () => {
         </div>
         <div>
           <label>Password</label>
-          <div className={style.inputContainer}>
+          <div className={styles.inputContainer}>
             <input
               type="password"
               value={password}
@@ -63,7 +63,7 @@ const LoginForm = () => {
             />
           </div>
         </div>
-        <div className={style.buttonContainer}>
+        <div className={styles.buttonContainer}>
           <button type="submit">Log In</button>
           <button type="submit" onClick={demoLogin}>
             Demo User

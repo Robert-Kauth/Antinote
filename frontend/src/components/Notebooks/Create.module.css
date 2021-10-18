@@ -1,0 +1,37 @@
+.field {
+  color: darkblue;
+  border: 2px solid darkblue;
+  padding: 5px;
+}
+.legend {
+  color: darkblue;
+}
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+}
+.input {
+  display: flex;
+  justify-content: center;
+}
+.form {
+  background-color: lightseagreen;
+  border-radius: 5px;
+  padding: 5px;
+}
+.errors {
+  margin: 5px;
+  padding: 5px;
+}
+.ul {
+  display: flex;
+  align-items: center;
+}
+.indivError {
+  list-style: inside
+    url("https://antinote.s3.us-west-1.amazonaws.com/alert-circle-black.png");
+  padding: 10px;
+  color: #ce2029;
+  font-size: 20px;
+  font-weight: bold;
+}

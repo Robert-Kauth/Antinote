@@ -1,21 +1,23 @@
 .container {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: #087830;
   border: 2px solid darkcyan;
   border-style: inset;
   box-shadow: 0 0 2px 1px darkcyan;
+  padding: 5px;
+  min-width: 90vw;
 }
 .navLink,
 a {
-  display: inline-flex;
-  align-items: center;
   border-radius: 2px;
-  margin: 0 5px;
+  margin: 0;
   color: black;
   text-decoration: none;
-  padding: 5px;
+  font-size: 16px;
+  height: fit-content;
 }
 .navLink :visited {
   text-decoration: none;
@@ -27,37 +29,18 @@ a {
 .loginModal {
   margin: 0 5px;
 }
-.iconContainer {
-  padding-top: 2px;
+.profileLinksWrapper {
+  display: inline-flex;
+  align-items: baseline;
 }
-.profile {
-  padding: 5px;
+.notes {
+  display: inline-flex;
 }
-
-.profileButton {
-  position: relative;
+.notesButton {
+  background-color: #00a86b;
+  color: black;
   margin: 0 5px;
 }
-.profileDropdown {
-  position: absolute;
-  margin: 0;
-  right: 1px;
-  padding: 5px;
-  background-color: aliceblue;
-  list-style-type: none;
-  border-radius: 5px;
-}
-.profileContent {
-  font-size: 16px;
-}
-.profileContentButton {
-  display: flex;
-  justify-content: center;
-}
-.linksContainer {
+.homeProfile {
   display: inline-flex;
-}
-.profileHome {
-  display: inline-flex;
-  align-content: center;
 }

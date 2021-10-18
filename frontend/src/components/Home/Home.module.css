@@ -1,20 +1,48 @@
+.titleWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.title {
+  text-align: center;
+  font-size: 45px;
+  margin: 0;
+  color: #4b0082;
+  border: 2px solid black;
+  background-color: #087830;
+  box-shadow: 0 0 2px 2px #006600;
+  padding: 5px;
+}
 .notebookContainer {
   flex-direction: column;
-  border: 2px solid red;
-  padding: 0 50px;
+  min-height: 100vh;
+  /* background-image: url(https://antinote.s3.us-west-1.amazonaws.com/Antidote.gif);
+  background-clip: padding-box;
+  background-repeat: repeat;
+  background-size: 15vh; */
 }
 .titleText {
   display: flex;
+  font-size: 25px;
   justify-content: center;
-  border: 2px solid darkgreen;
-  padding: 0 10px;
+  background-color: #00bfff;
+  color: black;
+  padding: 5px 50px;
+  box-shadow: 0 0 2px 2px #fdfd96;
 }
 .notebookContainer {
+  position: relative;
   display: flex;
   justify-content: center;
+  margin: 0 25px;
 }
 .notebook {
-  border: 2px dashed purple;
+  border: 2px solid lightseagreen;
+  /* background-color: #00a86b; */
+  margin: 5px 0;
+  padding: 5px;
+  box-shadow: 0 0 2px 2px #006600;
 }
 .titleWrapper {
   display: flex;
@@ -28,12 +56,12 @@
   margin: 10px;
 }
 .deleteButton {
-  background-color: red;
-  color: black;
+  background-color: #ce2029;
+  color: aliceblue;
+  margin-right: 5px;
 }
 .linkWrapper {
   display: flex;
-  justify-content: center;
-  width: 90%;
-  margin-left: 200px;
+  justify-content: space-between;
+  padding: 5px;
 }

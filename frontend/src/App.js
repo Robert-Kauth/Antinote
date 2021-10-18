@@ -4,11 +4,11 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import SignupFormModal from "./components/SignupFormModal";
-import { Switch, Route } from "react-router";
+import { Switch, Route } from "react-router-dom";
 import NoteBooks from "./components/Notebooks";
 import Notes from "./components/Notes";
-import { loadNotebooks } from "./store/notebooks";
-import { loadNotes } from "./store/notes";
+import Footer from "./components/Footer";
+import "./index.css";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,12 +20,12 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="globalWrapper">
       <Navigation isLoaded={isLoaded} />
       <Switch>
         <Route exact path="/">
           {!sessionUser && <SignupFormModal />}
-          <Home></Home>
+          {sessionUser && <Home user={sessionUser} />}
         </Route>
         <Route path="/notebooks/:id">
           <NoteBooks> </NoteBooks>
@@ -37,6 +37,7 @@ function App() {
           <h1>Page not found</h1>
         </Route>
       </Switch>
+      <Footer />
     </div>
   );
 }

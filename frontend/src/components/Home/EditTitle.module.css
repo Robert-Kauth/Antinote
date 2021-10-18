@@ -3,3 +3,30 @@
   flex-direction: column;
   padding: 5px;
 }
+.editTitle {
+  background-color: #00ffff;
+  color: black;
+}
+
+.form {
+  background-color: lightseagreen;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.field {
+  color: darkblue;
+  border: 2px solid darkblue;
+  padding: 5px;
+}
+.buttonContainer {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+  justify-content: center;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: center;
+}

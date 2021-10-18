@@ -1,15 +1,30 @@
-import React from "react";
-import NotebookCard from "../Notebooks/NotebookCard";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loadNotes } from "../../store/notes";
+import NoteCard from "./NoteCard";
 import styles from "./Notes.module.css";
-/*
-TODO Note component should only show notes belonging to current notebook when displayed in notebooks route. In Notes route all notes in all notebooks belonging to the curent user should be displayed.
-*/
+
 const Notes = () => {
+  const dispatch = useDispatch();
+
+  const notes = useSelector((state) => Object.values(state.notes));
+
+  useEffect(() => {
+    dispatch(loadNotes());
+  }, [dispatch]);
+
+  if (!notes.length) return null;
   return (
-    <>
-      <h1>Hello from notes</h1>
-      <NotebookCard className={styles.noteCard} />
-    </>
+    <div className={styles.background}>
+      {notes && (
+        <div>
+          <div className={styles.titleWrapper}>
+            <p className={styles.title}>Notes</p>
+          </div>
+          <NoteCard notes={notes} />
+        </div>
+      )}
+    </div>
   );
 };
 

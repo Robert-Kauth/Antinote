@@ -1,23 +1,21 @@
 import React, { useState } from "react";
 import { Modal } from "../../context/Modal";
-import EditTitle from "./EditTitle";
-import styles from "./EditTitle.module.css";
+import CreateNote from "./CreateNote";
+import styles from "./CreateNote.module.css";
 
-const TitleModal = ({ notebook }) => {
+const CreateNoteModal = () => {
   const [showModal, setShowModal] = useState(false);
-
   return (
     <>
       <button className={styles.editTitle} onClick={() => setShowModal(true)}>
-        Edit Title
+        Create Note
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditTitle id={notebook} setShowModal={setShowModal} />
+          <CreateNote setShowModal={setShowModal} />
         </Modal>
       )}
     </>
   );
 };
-
-export default TitleModal;
+export default CreateNoteModal;

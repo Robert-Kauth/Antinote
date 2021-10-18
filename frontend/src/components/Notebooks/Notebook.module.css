@@ -3,26 +3,36 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10px;
 }
 .titleWrapper {
-  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
 }
 .title {
   text-align: center;
-}
-::placeholder {
-  color: black;
-  font-weight: bold;
+  font-size: 45px;
+  margin: 0;
+  color: #4b0082;
+  border: 2px solid black;
+  background-color: #087830;
+  box-shadow: 0 0 2px 2px #006600;
+  padding: 5px;
 }
 .editTitle {
   width: fit-content;
 }
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 10px;
+.cardWrapper {
+  /* display: flex;
+  justify-content: center; */
+  /* align-items: flex-start;
+  gap: 10px; */
+  border: 2px solid lightseagreen;
+  /* background-color: #00a86b; */
+  margin: 0 25px;
+  /* padding: 5px; */
+  box-shadow: 0 0 2px 2px #006600;
 }
 .menuContainer {
   display: inline-flex;
@@ -51,4 +61,11 @@
 }
 .editorWrapper {
   border: 2px solid black;
+}
+.notebooksContainer {
+  min-height: 100vh;
+  /* background-image: url(https://antinote.s3.us-west-1.amazonaws.com/Antidote.gif);
+  background-clip: padding-box;
+  background-repeat: repeat;
+  background-size: 15vh; */
 }
