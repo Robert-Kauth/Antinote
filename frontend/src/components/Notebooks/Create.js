@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import styles from "./Create.module.css";
 import { addNotebook } from "../../store/notebooks";
 
 const Create = ({ setShowModal }) => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [title, setTitle] = useState();
   const [validationErrors, setValidationErrors] = useState([]);
@@ -28,6 +30,7 @@ const Create = ({ setShowModal }) => {
       title,
     };
     dispatch(addNotebook(notebook));
+    history.push("/");
     setShowModal(false);
   };
   return (
