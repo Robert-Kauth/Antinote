@@ -114,24 +114,15 @@ const notesReducer = (state = initialState, action) => {
       action.notes.forEach((note) => {
         notes[note.id] = note;
       });
-      console.log(notes, "%%%%%%%%%%%%%");
       return { ...state, ...notes };
     }
     case ADD_NOTE: {
       const newState = { ...state };
-      // console.log(action.note, "action.note");
-      // console.log(action.notebook, "action.notebook before push");
       const note = action.note;
-      // console.log(note, "@@@@@@@@@@@@@@@@@@");
       action.notebook.Notes.push(action.note);
-      // console.log(action.notebook, "action.notebook after push");
       newState[action.note.id] = note;
       return { ...newState, ...action.notebook };
     }
-    // case UPDATE_NOTE: {
-    //   console.log(action.note, "%%%%%%%%%%%%UPDATE");
-    //   return { ...state, [action.note.id]: action.note };
-    // }
     case UPDATE_NOTE: {
       const newState = { ...state };
       const note = action.notebook.Notes.findIndex(
