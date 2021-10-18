@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import styles from "./Home.module.css";
 import NotebookCard from "../Notebooks/NotebookCard";
 import { deleteNotebook, loadNotebooks } from "../../store/notebooks";
-import { Link } from "react-router-dom";
 import TitleModal from "./TitleModal";
 
 const Home = ({ user }) => {

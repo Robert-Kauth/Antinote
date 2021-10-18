@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Create.module.css";
 import { addNotebook } from "../../store/notebooks";
-import { mdiAlertCircle } from "@mdi/js";
-import Icon from "@mdi/react";
 
 const Create = ({ setShowModal }) => {
   const dispatch = useDispatch();
