@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import EditCardModal from "./EditCardModal";
-import { deleteNote, getNotes, loadNotes } from "../../store/notes";
+import { deleteNote, getNotes } from "../../store/notes";
 import styles from "./NoteBookCard.module.css";
 import { loadNotebook } from "../../store/notebooks";
 
@@ -17,8 +17,8 @@ const NoteBookCard = ({ notebook, notes, id }) => {
   if (!notes.length) return null;
   return (
     <div className={styles.cardWrapper}>
-      {notes &&
-        notes.map((note) => (
+      {notebook &&
+        notebook.Notes?.map((note) => (
           <span key={note.id} className={styles.wrapper}>
             <div className={styles.noteTitle}>{note.title}</div>
             <div className={styles.noteContent}>{note.content}</div>

@@ -74,7 +74,6 @@ export const addNote = (payload, notebook) => async (dispatch) => {
 };
 
 export const updateNote = (payload, id, notebook) => async (dispatch) => {
-  console.log(id, typeof id, "!!!!!!!!note.id");
   const res = await csrfFetch(`/api/notes/${id}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
