@@ -58,7 +58,9 @@ router.get(
       },
     });
     if (notebooks) {
+        //TODO need to normalize notes in notebooks before sending to front-end
       return res.json(notebooks);
+
     } else {
       next(notebooksNotFoundError(userId));
     }
@@ -74,6 +76,7 @@ router.get(
       },
     });
     if (notebook) {
+     //TODO need to normalize notes in notebooks before sending to front-end
       return res.json(notebook);
     }
   })
@@ -96,6 +99,7 @@ router.post(
         model: Note,
       },
     });
+    //TODO need to normalize notes in notebooks before sending to front-end
     return res.json(newNotebook);
   })
 );
@@ -124,6 +128,7 @@ router.patch(
     });
     const { userId, title } = req.body;
     if (notebook) {
+    //TODO need to normalize notes in notebooks before sending to front-end
       await notebook.update({ userId, title });
       return res.json(notebook);
     } else {
