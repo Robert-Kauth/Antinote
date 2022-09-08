@@ -48,6 +48,7 @@ router.get(
         model: Notebook,
       },
     });
+    //TODO need to normalize notebooks in notes before sending to front-end
     return res.json(notes);
   })
 );
@@ -65,6 +66,7 @@ router.get(
       },
     });
     if (notes) {
+    //TODO need to normalize notebooks in notes before sending to front-end
       return res.json(notes);
     }
   })
@@ -83,6 +85,7 @@ router.patch(
       throw new Error("Cannot find Note");
     }
     await note.update({ content: newContent });
+    //TODO need to normalize notebooks in notes before sending to front-end
     return res.json(note);
   })
 );
@@ -103,6 +106,7 @@ router.post(
         model: Notebook,
       },
     });
+    //TODO need to normalize notebooks in notes before sending to front-end
     return res.json(newNote);
   })
 );

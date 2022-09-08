@@ -5,11 +5,15 @@ import { deleteNote, getNotes } from "../../store/notes";
 import styles from "./NoteBookCard.module.css";
 import { loadNotebook } from "../../store/notebooks";
 
+// TODO remove props and use notebooks from store instead
 const NoteBookCard = ({ notebook, notes, id }) => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.session.user?.id);
+  //? Can useselctor call loadNotebook?
+  const notebook = useSelector((state) => state.notebooks.loadNotebook(id));
 
   useEffect(() => {
+    //! This isn't necessary
     dispatch(loadNotebook(+id));
     dispatch(getNotes(+id));
   }, [dispatch, id]);
