@@ -16,13 +16,16 @@
       "runner": "@nrwl/nx-cloud",
       "options": {
         "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "accessToken": "NX_CLOUD_ACCESS_TOKEN"
+        "accessToken": "NX_CLOUD_AUTH_TOKEN",
+        "encryptionKey": "NX_CLOUD_ENCRYPTION_KEY"
       }
     }
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": ["^build"]
+      "dependsOn": [
+        "^build"
+      ]
     }
   },
   "generators": {
