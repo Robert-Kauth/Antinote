@@ -3,6 +3,9 @@
 # Nx Cloud
 nx-cloud.env
 
+# Environmental Secrets
+.env
+
 # compiled output
 /dist
 /tmp
